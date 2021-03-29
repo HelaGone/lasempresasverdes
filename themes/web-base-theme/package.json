@@ -1,0 +1,17 @@
+{
+  "name": "web-base-theme",
+  "version": "1.0.0",
+  "description": "Web base theme for las empresas verdes ",
+  "main": "js/index.js",
+  "author": "Holkan Luna",
+  "license": "MIT",
+  "private": true,
+  "scripts":{
+    "start": "webpack --watch --config webpack.config.js",
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "webpack": "^5.24.3",
+    "webpack-cli": "^4.5.0"
+  }
+}
