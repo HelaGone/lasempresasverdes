@@ -45,8 +45,8 @@ $videos = json_decode(file_get_contents("/Users/dev/Sites/services/ReadPlaylistC
                     <img
                       src="<?php echo esc_url($thumbnails->default->url); ?>"
                       alt="<?php echo esc_attr($snippet->description); ?>"
-                      width="120"
-                      height="120">
+                      width="150"
+                      height="150">
                     <figcaption class="card_caption">
                       <h3 class="card_heading">
                         <?php echo esc_html($snippet->title); ?>
