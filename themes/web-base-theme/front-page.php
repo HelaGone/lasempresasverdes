@@ -1,14 +1,12 @@
-<?php get_header(); $wp_query;
-
-$videos = json_decode(file_get_contents("/Users/dev/Sites/services/ReadPlaylistClass/videos.json"));
-?>
+<?php get_header(); $wp_query; global $_videos;
+$_videos = json_decode(file_get_contents("/Users/dev/Sites/services/ReadPlaylistClass/videos.json")); ?>
 <main id="lev-home" class="main_wrapper">
-  <section class="inner_wrapper">
+  <section class="full_section">
     <!-- Player -->
     <section id="player_cover">
       <?php
-        if(array_key_exists("items", $videos)):
-          $first_vid = $videos->items[0];
+        if(array_key_exists("items", $_videos)):
+          $first_vid = $_videos->items[0];
           $fv_snippet = $first_vid->snippet;
           $fv_thumbnails = $fv_snippet->thumbnails; ?>
           <figure class="pyr_fig">
@@ -31,36 +29,9 @@ $videos = json_decode(file_get_contents("/Users/dev/Sites/services/ReadPlaylistC
     </section>
 
     <section id="mixed_box">
-      <?php
-        if(array_key_exists("items", $videos)):?>
-          <ul id="playlist" class="play_list">
-            <?php
-              foreach($videos->items as $key => $value):
-                //debug($value);
-                $snippet = $value->snippet;
-                $thumbnails = $snippet->thumbnails;
-                $vId = $snippet->resourceId->videoId; ?>
-                <li class="list_item">
-                  <figure class="card_fig">
-                    <img
-                      src="<?php echo esc_url($thumbnails->default->url); ?>"
-                      alt="<?php echo esc_attr($snippet->description); ?>"
-                      width="150"
-                      height="150">
-                    <figcaption class="card_caption">
-                      <h3 class="card_heading">
-                        <?php echo esc_html($snippet->title); ?>
-                      </h3>
-                      <time datetime="<?php echo esc_attr($snippet->publishedAt); ?>"><?php echo esc_html($snippet->publishedAt); ?></time>
-                    </figcaption>
-                  </figure>
-                </li>
-            <?php
-              endforeach;?>
-          </ul>
-      <?php
-        endif; ?>
-      <!-- <div id="columns" class="">
+      <?php get_template_part('templates/section', 'playlist'); ?>
+
+      <div id="columns" class="">
         <?php
           $args = array(
             "post_type"=>"post",
@@ -74,27 +45,61 @@ $videos = json_decode(file_get_contents("/Users/dev/Sites/services/ReadPlaylistC
           if($columnas->have_posts()):
             while($columnas->have_posts()):
               $columnas->the_post();
-              setup_postdata($post); ?>
-              <figure class="column_fig">
-                <?php has_post_thumbnail() ? the_post_thumbnail('thumbnail') : ""; ?>
-                <figcaption class="column_caption">
-                  <h3 class="column_heading"><?php the_title(); ?></h3>
-                </figcaption>
-              </figure>
+              setup_postdata($post);
+              $pID = $post->ID;
+              $cat = get_the_category($pID);
+              ?>
+              <article class="col_fig">
+                <section class="image_frame">
+                  <?php has_post_thumbnail() ? the_post_thumbnail('middle_480') : ""; ?>
+                </section>
+                <section class="col_info">
+                  <span class="col_category"><?php echo esc_html($cat[0]->name); ?></span>
+                  <div class="col_caption">
+                    <h3 class="col_heading"><?php the_title(); ?></h3>
+                    <time class="date_info"><?php echo get_the_date("j.M.Y ", $pID); ?></time>
+                  </div>
+                </section>
+              </article>
               <?php
             endwhile;
             wp_reset_postdata();
           endif; ?>
-      </div> -->
+      </div>
     </section>
+  </section>
 
-    <?php
-      // if(have_posts()):
-      //   while (have_posts()):
-      //     the_post();
-      //     the_title();
-      //   endwhile;
-      // endif; ?>
+  <section id="latest" class="bg_gold full_section">
+    <div class="inner_wrapper">
+      <?php
+      if(have_posts()):
+        while (have_posts()):
+          the_post();
+          $pId = $post->ID;
+          $cat = get_the_category($pId);
+          ?>
+          <article id="<?php echo esc_attr("art-".$pId); ?>" class="art_fig">
+            <?php has_post_thumbnail() ? the_post_thumbnail("middle_480") : "";?>
+            <section class="art_caption">
+              <div class="art_info">
+                <time class="date_info" datetime=""><?php echo get_the_date("j.M.Y ", $pId); ?></time>
+                <span>
+                  <a href="<?php echo get_term_link($cat[0], "category"); ?>">
+                    <?php echo esc_html($cat[0]->name); ?>
+                  </a>
+                </span>
+              </div>
+              <h3 class="art_heading"><?php the_title(); ?></h3>
+            </section>
+          </article>
+          <?php
+        endwhile;
+      endif; ?>
+    </div>
+  </section>
+
+  <section id="sponsors" class="full_section">
+    
   </section>
 </main>
 <?php get_footer(); ?>

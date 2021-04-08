@@ -145,10 +145,9 @@
 	add_filter('posts_clauses', 'wbt_set_found_posts');
 
   if ( function_exists('add_image_size') ) {
-    // add_image_size( 'fullsize', 1280, 720, true );
-    // add_image_size( 'middle', 640, 360, true );
-    // add_image_size( 'square', 400, 400, true );
-    // add_image_size( 'thumbnail', 150, 150, true );
+    add_image_size( 'large_1280', 1280, 720, true );
+    add_image_size( 'featured_1024', 1024, 576, true );
+    add_image_size( 'middle_480', 480, 270, true );
   }
 
    /**
@@ -197,6 +196,18 @@
   if ( defined( 'JETPACK__VERSION' ) ) {
   	require get_template_directory() . '/inc/jetpack.php';
   }
+
+  add_action("pre_get_posts", function($query){
+    if(is_admin()){
+      return;
+    }
+
+    if($query->is_main_query()){
+      if(is_front_page()){
+        $query->set("cat", "-39");
+      }
+    }
+  });
 
   /**
    * DEBUG

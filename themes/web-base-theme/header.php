@@ -2,6 +2,7 @@
 <html lang="<?php language_attributes(); ?>" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=devidce-width, initial-scale=1.0">
     <link rel="apple-touch-icon" sizes="57x57" href="<?php echo THEMEPATH . "images/assets/apple-icon-57x57.png"; ?>">
     <link rel="apple-touch-icon" sizes="60x60" href="<?php echo THEMEPATH . "images/assets/apple-icon-60x60.png"; ?>">
     <link rel="apple-touch-icon" sizes="72x72" href="<?php echo THEMEPATH . "images/assets/apple-icon-72x72.png"; ?>">
