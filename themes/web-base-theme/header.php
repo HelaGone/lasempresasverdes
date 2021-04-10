@@ -2,7 +2,7 @@
 <html lang="<?php language_attributes(); ?>" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=devidce-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="apple-touch-icon" sizes="57x57" href="<?php echo THEMEPATH . "images/assets/apple-icon-57x57.png"; ?>">
     <link rel="apple-touch-icon" sizes="60x60" href="<?php echo THEMEPATH . "images/assets/apple-icon-60x60.png"; ?>">
     <link rel="apple-touch-icon" sizes="72x72" href="<?php echo THEMEPATH . "images/assets/apple-icon-72x72.png"; ?>">
@@ -21,7 +21,13 @@
     <meta name="msapplication-TileImage" content="<?php echo THEMEPATH . "images/assets/ms-icon-144x144.png" ?>">
     <meta name="theme-color" content="#ffffff">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="preload" crossorigin as="style">
+
+    <!-- Slick -->
+    <!-- <link rel="preconnect" href="//cdn.jsdelivr.net/"> -->
+    <!-- <link rel="preload" crossorigin type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <script rel="preload" crossorigin type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> -->
+
     <!-- TITLE TAG IS MANAGED BY WORDPRESS -->
     <?php wp_head(); ?>
   </head>

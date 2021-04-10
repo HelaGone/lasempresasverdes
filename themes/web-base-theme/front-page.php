@@ -99,7 +99,13 @@ $_videos = json_decode(file_get_contents("/Users/dev/Sites/services/ReadPlaylist
   </section>
 
   <section id="sponsors" class="full_section">
-    
+    <div class="sponsors_carousel">
+      <img src="<?php echo THEMEPATH . "images/sponsors/LOGO_FIF-1024X576.jpeg"?>" alt="FIF" width="120" height="68">
+      <img src="<?php echo THEMEPATH . "images/sponsors/Logo-Henkel-PNG-1024x573.png"?>" alt="Henkel" width="120" height="68">
+      <img src="<?php echo THEMEPATH . "images/sponsors/Logo-Tetra-Pak.png"?>" alt="Tetra-Pak" width="120" height="68">
+      <img src="<?php echo THEMEPATH . "images/sponsors/natura-preferencial-1024x769.png"?>" alt="Natura" width="120" height="68">
+      <img src="<?php echo THEMEPATH . "images/sponsors/pappel-scaled.jpeg"?>" alt="FIF" width="120" height="68">
+    </div>
   </section>
 </main>
 <?php get_footer(); ?>

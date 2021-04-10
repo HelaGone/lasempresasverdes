@@ -175,7 +175,7 @@ a:hover,a:active {outline: 0;}
 .pyr_fig{background-color: var(--dark);}
 .pyr_caption{color:var(--lightGrey);padding-bottom: 60px;}
 .pyr_caption.inner_wrapper{padding:0 20px 60px 20px;}
-.pyr_heading{font-size: 42px;line-height: 46px;}
+.pyr_heading{font-size: 42px;line-height: 46px;font-family: 'Playfair Display', serif;}
 .pyr_caption p{text-align: left;font-size: 14px;line-height: 20px;font-weight:300;margin:40px auto;max-width: 90%;}
 .btn_frame{text-align: center;display: flex;flex-direction: row;justify-content: center;align-items: center;}
 .btn_frame img{background-color: var(--lightBrown);border-radius: 5px 0 0 5px;}
