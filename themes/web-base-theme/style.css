@@ -208,6 +208,11 @@ a:hover,a:active {outline: 0;}
 .art_info span{font-size: 14px;font-weight: normal;}
 .art_heading{font-size: 18px;font-weight: 400;line-height: 20px;margin-top:4px;}
 
+/* WIDGET SPONSORS*/
+#sponsors{background-color: white;padding:40px 0;}
+.sponsors_carousel{overflow: hidden;max-width: 1440px;margin:0 auto;}
+.sponsors_carousel img{width: auto;height: 120px;object-fit: contain;}
+
 /*--------------------------------------------------------------
   COMPONENTS: Media
 --------------------------------------------------------------*/

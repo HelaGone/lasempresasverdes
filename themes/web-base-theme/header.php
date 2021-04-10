@@ -22,14 +22,14 @@
     <meta name="theme-color" content="#ffffff">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="preload" crossorigin as="style">
+    <?php wp_head(); ?>
 
     <!-- Slick -->
-    <!-- <link rel="preconnect" href="//cdn.jsdelivr.net/"> -->
-    <!-- <link rel="preload" crossorigin type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <script rel="preload" crossorigin type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> -->
+    <link rel="preconnect" href="//cdn.jsdelivr.net/">
+    <link rel="preload" crossorigin type="text/css" as="style" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <script rel="preload" crossorigin type="text/javascript" as="script" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
     <!-- TITLE TAG IS MANAGED BY WORDPRESS -->
-    <?php wp_head(); ?>
   </head>
   <body>
     <header id="main_header">
