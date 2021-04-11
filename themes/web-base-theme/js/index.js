@@ -34,6 +34,29 @@
       speed: 3333
     });
 
+		let hamburger = document.getElementById("hamburger");
+		let io = 0;
+		let count = 0;
+		hamburger.addEventListener("click", (evt) => {
+			const menu = document.getElementById("main_menu");
+			const menu_list = document.getElementById("menu-main-menu");
+			let showIt = (++count%2) ? 1 : 0;
+			Array.from(menu_list.children).forEach((v, k) => {
+				v.style.opacity = showIt;
+			});
+			(++io%2) ? handleToggle(menu, true) : handleToggle(menu, false);
+		});
+
+		const handleToggle = (targ, state) => {
+			switch (state) {
+				case true:
+					targ.style.width = "100%";
+					break;
+				default:
+					targ.style.width = "0px";
+			}
+		}
+
 		// $("#latest .inner_wrapper").slick({
 		// 	accesibility: true,
     //   arrows:false,
