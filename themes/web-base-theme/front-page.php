@@ -6,20 +6,24 @@ $_videos = json_decode(file_get_contents("/Users/dev/Sites/services/ReadPlaylist
     <section id="player_cover">
       <?php
         if(array_key_exists("items", $_videos)):
-          $first_vid = $_videos->items[0];
+          $first_vid = $_videos->items[4];
           $fv_snippet = $first_vid->snippet;
-          $fv_thumbnails = $fv_snippet->thumbnails; ?>
+          $fv_thumbnails = $fv_snippet->thumbnails;
+          $cover_src = (array_key_exists("maxres", $fv_thumbnails)) ? $fv_thumbnails->maxres->url : $fv_thumbnails->high->url;
+          $w = (array_key_exists("maxres", $fv_thumbnails)) ? $fv_thumbnails->maxres->width : $fv_thumbnails->high->width;
+          $h = (array_key_exists("maxres", $fv_thumbnails)) ? $fv_thumbnails->maxres->height : $fv_thumbnails->high->height; ?>
           <figure class="pyr_fig">
             <img
-              src="<?php echo esc_attr($fv_thumbnails->maxres->url); ?>"
+              src="<?php echo esc_url($cover_src); ?>"
               alt="<?php echo esc_attr($fv_snippet->description); ?>"
-              width="<?php echo esc_attr($fv_thumbnails->maxres->width); ?>"
-              height="<?php echo esc_attr($fv_thumbnails->maxres->height); ?>">
+              width="<?php echo esc_attr($w); ?>"
+              height="<?php echo esc_attr($h); ?>"
+              class="main_cover">
             <figcaption class="pyr_caption inner_wrapper">
               <h2 class="pyr_heading"><?php echo esc_html($fv_snippet->title); ?></h2>
               <p><?php echo esc_html($fv_snippet->description); ?></p>
               <div class="btn_frame">
-                <img src="<?php echo THEMEPATH . "images/assets/svg/play_arrow.svg" ?>" alt="Play arrow" width="48" height="48">
+                <img src="<?php echo THEMEPATH . "images/assets/svg/play_arrow.svg" ?>" alt="Play arrow" width="48" height="48"/>
                 <button id="btn_load_pyr" class="lev_button" type="button" name="button">Mira el video</button>
               </div>
             </figcaption>
@@ -82,7 +86,7 @@ $_videos = json_decode(file_get_contents("/Users/dev/Sites/services/ReadPlaylist
             <?php has_post_thumbnail() ? the_post_thumbnail("middle_480") : "";?>
             <section class="art_caption">
               <div class="art_info">
-                <time class="date_info" datetime=""><?php echo get_the_date("j.M.Y ", $pId); ?></time>
+                <time class="date_info" datetime="<?php echo get_the_date("c", $pId); ?>"><?php echo get_the_date("j.M.Y ", $pId); ?></time>
                 <span>
                   <a href="<?php echo get_term_link($cat[0], "category"); ?>">
                     <?php echo esc_html($cat[0]->name); ?>
