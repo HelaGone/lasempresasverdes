@@ -4,8 +4,8 @@
     <ul id="playlist" class="play_list">
       <?php
         foreach($_videos->items as $key => $value):
-          //debug($value);
           $snippet = $value->snippet;
+          $date = date("j.M.Y", strtotime($snippet->publishedAt));
           $thumbnails = $snippet->thumbnails;
           $vId = $snippet->resourceId->videoId; ?>
           <li class="list_item">
@@ -19,7 +19,7 @@
                 <h3 class="card_heading">
                   <?php echo esc_html($snippet->title); ?>
                 </h3>
-                <time class="date_info" datetime="<?php echo esc_attr($snippet->publishedAt); ?>"><?php echo esc_html($snippet->publishedAt); ?></time>
+                <time class="date_info" datetime="<?php echo esc_attr(date("c", strtotime($snippet->publishedAt))); ?>"><?php echo esc_html($date); ?></time>
               </figcaption>
             </figure>
           </li>

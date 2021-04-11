@@ -51,18 +51,24 @@ $_videos = json_decode(file_get_contents("/Users/dev/Sites/services/ReadPlaylist
               $columnas->the_post();
               setup_postdata($post);
               $pID = $post->ID;
-              $cat = get_the_category($pID);
-              ?>
+              $cat = get_the_category($pID); ?>
               <article class="col_fig">
                 <section class="image_frame">
                   <?php has_post_thumbnail() ? the_post_thumbnail('middle_480') : ""; ?>
                 </section>
                 <section class="col_info">
-                  <span class="col_category"><?php echo esc_html($cat[0]->name); ?></span>
+                  <span class="col_category">
+                    <a href="<?php echo get_category_link($cat[0]->term_id); ?>" title="<?php echo esc_attr($cat[0]->name); ?>">
+                      <?php echo esc_html($cat[0]->name); ?>
+                    </a>
+                  </span>
                   <div class="col_caption">
-                    <h3 class="col_heading"><?php the_title(); ?></h3>
-                    <time class="date_info"><?php echo get_the_date("j.M.Y ", $pID); ?></time>
+                    <h3 class="col_heading">
+                      <?php the_title(); ?>
+                    </h3>
+                    <time class="date_info" datetime="<?php echo get_the_date("c"); ?>"><?php echo get_the_date("j.M.Y ", $pID); ?></time>
                   </div>
+                  <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr($post->post_title); ?>"></a>
                 </section>
               </article>
               <?php

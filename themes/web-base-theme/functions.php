@@ -27,42 +27,41 @@
   }
 
   if ( ! function_exists( 'wbt_setup' ) ) :
-  	/**
-  	 * Sets up theme defaults and registers support for various WordPress features.
-  	 */
-  	function wbt_setup() {
-  		/*
-  		 * Make theme available for translation.
-  		 * Translations can be filed in the /languages/ directory.
-  		 * If you're building a theme based on _s, use a find and replace
-  		 * to change '_s' to the name of your theme in all the template files.
-  		 */
-  		load_theme_textdomain( 'web-base-theme', get_template_directory() . '/languages' );
+    /**
+    * Sets up theme defaults and registers support for various WordPress features.
+    */
+    function wbt_setup() {
+      /*
+      * Make theme available for translation.
+      * Translations can be filed in the /languages/ directory.
+      * If you're building a theme based on _s, use a find and replace
+      * to change '_s' to the name of your theme in all the template files.
+      */
+      load_theme_textdomain( 'web-base-theme', get_template_directory() . '/languages' );
+      add_theme_support( 'automatic-feed-links' );
+      add_theme_support( 'title-tag' );
+      add_theme_support( 'post-thumbnails' );
+      add_theme_support('html5', array(
+        'search-form','comment-form','comment-list','gallery','caption','style','script'
+      ));
+      add_theme_support( 'customize-selective-refresh-widgets' );
+      add_theme_support( 'custom-logo', array(
+        'height'=> 250,'width'=> 250,'flex-width'=> true,'flex-height'=> true,
+      ));
+      add_theme_support( 'amp' );
+      add_theme_support( 'post-formats', array( 'galerias', 'video', 'audio' ) );
 
-  		add_theme_support( 'automatic-feed-links' );
-  		add_theme_support( 'title-tag' );
-  		add_theme_support( 'post-thumbnails' );
-  		add_theme_support('html5', array(
-      'search-form','comment-form','comment-list','gallery','caption','style','script'
-    ));
-  		add_theme_support( 'customize-selective-refresh-widgets' );
-  		add_theme_support( 'custom-logo', array(
-      'height'=> 250,'width'=> 250,'flex-width'=> true,'flex-height'=> true,
-    ));
-    add_theme_support( 'amp' );
-    add_theme_support( 'post-formats', array( 'galerias', 'video', 'audio' ) );
+      //Support for guenberg block styles
 
-    //Support for guenberg block styles
+      //Support for align wide
+      add_theme_support( 'align-wide' );
 
-  	//Support for align wide
-  	add_theme_support( 'align-wide' );
-
-    // This theme uses wp_nav_menu() in two locations.
-  		register_nav_menus(array(
-      'menu-1' => esc_html__( 'Primary', 'web-base-theme' ),
-      'menu-2' => esc_html__( 'Secondary', 'web-base-theme' )
-    ));
-  	}
+      // This theme uses wp_nav_menu() in two locations.
+      register_nav_menus(array(
+        'menu-1' => esc_html__( 'Primary', 'web-base-theme' ),
+        'menu-2' => esc_html__( 'Secondary', 'web-base-theme' )
+      ));
+    }
   endif;
   add_action( 'after_setup_theme', 'wbt_setup' );
 
