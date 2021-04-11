@@ -1,7 +1,7 @@
 (function($){
 	"use strict";
 	$(function(){
-		console.log('hello from index.js');
+		console.log('index js');
 		/**
 		 * Validación de emails
 		 */
@@ -25,7 +25,7 @@
       accesibility: true,
       arrows:false,
       draggable:false,
-      slidesPerRow: 3,
+      slidesToShow: 3,
       autoplay:true,
       autoplaySpeed: 666,
       centerMode:true,
@@ -33,6 +33,30 @@
       mobileFirst:true,
       speed: 3333
     });
+
+		// $("#latest .inner_wrapper").slick({
+		// 	accesibility: true,
+    //   arrows:false,
+    //   draggable:false,
+    //   slidesToShow: 3,
+    //   autoplay:true,
+    //   autoplaySpeed: 666,
+    //   centerMode:true,
+    //   infinite:true,
+    //   mobileFirst:true,
+    //   speed: 3333
+    // });
+
+		// let width = window.innerWidth;
+		// let height = window.innerHeight;
+		// window.onresize = function(){
+		// 	width = window.innerWidth;
+		// 	height = window.innerHeight;
+		// 	if(width >= "1200"){
+		// 		console.log(`${width} x ${height}`);
+		//
+		// 	}
+		// }
 
 	});
 })(jQuery);

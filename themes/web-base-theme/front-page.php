@@ -77,13 +77,20 @@ $_videos = json_decode(file_get_contents("/Users/dev/Sites/services/ReadPlaylist
     <div class="inner_wrapper">
       <?php
       if(have_posts()):
+        $i = 0;
         while (have_posts()):
           the_post();
           $pId = $post->ID;
-          $cat = get_the_category($pId);
-          ?>
+          $cat = get_the_category($pId); ?>
           <article id="<?php echo esc_attr("art-".$pId); ?>" class="art_fig">
-            <?php has_post_thumbnail() ? the_post_thumbnail("middle_480") : "";?>
+            <?php
+              if(has_post_thumbnail()):
+                if($i==0):
+                  the_post_thumbnail("featured_1024");
+                else:
+                  the_post_thumbnail("featured_480");
+                endif;
+              endif; ?>
             <section class="art_caption">
               <div class="art_info">
                 <time class="date_info" datetime="<?php echo get_the_date("c", $pId); ?>"><?php echo get_the_date("j.M.Y ", $pId); ?></time>
@@ -97,6 +104,7 @@ $_videos = json_decode(file_get_contents("/Users/dev/Sites/services/ReadPlaylist
             </section>
           </article>
           <?php
+          $i++;
         endwhile;
       endif; ?>
     </div>

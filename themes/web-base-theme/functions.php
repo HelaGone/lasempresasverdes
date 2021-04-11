@@ -205,7 +205,7 @@
     if($query->is_main_query()){
       if(is_front_page()){
         $query->set("cat", "-39");
-        $query->set("posts_per_page", "11");
+        $query->set("posts_per_page", "2");
       }
     }
   });
