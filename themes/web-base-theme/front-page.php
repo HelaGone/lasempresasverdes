@@ -6,7 +6,7 @@ $_videos = json_decode(file_get_contents("/Users/dev/Sites/services/ReadPlaylist
     <section id="player_cover">
       <?php
         if(array_key_exists("items", $_videos)):
-          $first_vid = $_videos->items[4];
+          $first_vid = $_videos->items[0];
           $fv_snippet = $first_vid->snippet;
           $fv_thumbnails = $fv_snippet->thumbnails;
           $cover_src = (array_key_exists("maxres", $fv_thumbnails)) ? $fv_thumbnails->maxres->url : $fv_thumbnails->high->url;
@@ -89,14 +89,16 @@ $_videos = json_decode(file_get_contents("/Users/dev/Sites/services/ReadPlaylist
           $pId = $post->ID;
           $cat = get_the_category($pId); ?>
           <article id="<?php echo esc_attr("art-".$pId); ?>" class="art_fig">
-            <?php
-              if(has_post_thumbnail()):
-                if($i==0):
-                  the_post_thumbnail("featured_1024");
-                else:
-                  the_post_thumbnail("featured_480");
-                endif;
-              endif; ?>
+            <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr($post->post_title); ?>">
+              <?php
+                if(has_post_thumbnail()):
+                  if($i==0):
+                    the_post_thumbnail("featured_1024");
+                  else:
+                    the_post_thumbnail("featured_480");
+                  endif;
+                endif; ?>
+            </a>
             <section class="art_caption">
               <div class="art_info">
                 <time class="date_info" datetime="<?php echo get_the_date("c", $pId); ?>"><?php echo get_the_date("j.M.Y ", $pId); ?></time>
