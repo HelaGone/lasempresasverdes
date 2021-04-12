@@ -9,10 +9,13 @@ $_videos = json_decode(file_get_contents("/Users/dev/Sites/services/ReadPlaylist
           $first_vid = $_videos->items[0];
           $fv_snippet = $first_vid->snippet;
           $fv_thumbnails = $fv_snippet->thumbnails;
+          $fv_ID = $fv_snippet->resourceId->videoId;
           $cover_src = (array_key_exists("maxres", $fv_thumbnails)) ? $fv_thumbnails->maxres->url : $fv_thumbnails->high->url;
           $w = (array_key_exists("maxres", $fv_thumbnails)) ? $fv_thumbnails->maxres->width : $fv_thumbnails->high->width;
-          $h = (array_key_exists("maxres", $fv_thumbnails)) ? $fv_thumbnails->maxres->height : $fv_thumbnails->high->height; ?>
-          <figure class="pyr_fig">
+          $h = (array_key_exists("maxres", $fv_thumbnails)) ? $fv_thumbnails->maxres->height : $fv_thumbnails->high->height;
+          $fv_asset = "https://www.youtube.com/embed/".$fv_ID;
+          ?>
+          <figure id="first_vid_fig" class="pyr_fig">
             <img
               src="<?php echo esc_url($cover_src); ?>"
               alt="<?php echo esc_attr($fv_snippet->description); ?>"
@@ -24,10 +27,15 @@ $_videos = json_decode(file_get_contents("/Users/dev/Sites/services/ReadPlaylist
               <p><?php echo esc_html($fv_snippet->description); ?></p>
               <div class="btn_frame">
                 <img src="<?php echo THEMEPATH . "images/assets/svg/play_arrow.svg" ?>" alt="Play arrow" width="48" height="48"/>
-                <button id="btn_load_pyr" class="lev_button" type="button" name="button">Mira el video</button>
+                <button id="btn_load_pyr" data-value="<?php echo esc_attr($fv_ID); ?>" value="<?php echo esc_attr($fv_ID); ?>" class="lev_button" type="button" name="button">Mira el video</button>
               </div>
             </figcaption>
           </figure>
+          <iframe id="youtube_video_player" width="1200" height="675"
+            src="<?php echo esc_url($fv_asset); ?>"
+            title="<?php echo esc_attr($fv_snippet->title); ?>" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
           <?php
         endif; ?>
     </section>

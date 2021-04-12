@@ -202,9 +202,11 @@ a:hover,a:active {outline: 0;}
 #searchform input[type=submit]{background: none;width:40px;height: 40px;background-repeat: no-repeat;background-position: center;border: none;padding:0;margin-left: 20px;}
 #searchform input[type=text]{background: none;border:none;border-bottom:2px solid var(--lightBrown);width: 65%;background-color: var(--gold);padding: 6px;}
 
+#youtube_video_player{display: none;}
 
 .date_info{font-size: 12px;opacity: .8;font-weight: 300;}
 
+#player_cover{text-align: center;}
 .pyr_fig{background-color: var(--dark);}
 .pyr_fig img.main_cover{width: 100%;}
 .pyr_caption{color:var(--lightGrey);padding-bottom: 60px;}

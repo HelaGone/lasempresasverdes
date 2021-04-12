@@ -57,6 +57,34 @@
 			}
 		}
 
+		const btn_player = document.getElementById("btn_load_pyr");
+		let iframe = document.getElementById("youtube_video_player");
+		const cover = document.getElementById("first_vid_fig");
+		if(btn_player != null){
+			btn_player.addEventListener("click", (evt) => {
+				let target = evt.target;
+				let value = target.value;
+				cover.style.display = "none";
+				iframe.style.display = "inline";
+			});
+		}
+
+		let cards = document.querySelectorAll(".card_fig");
+		if(cards != null){
+			cards.forEach((item, i) => {
+				item.addEventListener("click", (evt) => {
+					let target = evt.target;
+					let vID = target.dataset.asset;
+					let asset_url = "https://www.youtube.com/embed/"+vID;
+					iframe.src = asset_url;
+					cover.style.display = "none";
+					iframe.style.display = "inline";
+					window.scrollTo({top:0,left:0,behavior:"smooth"});
+				});
+			});
+		}
+
+
 		// $("#latest .inner_wrapper").slick({
 		// 	accesibility: true,
     //   arrows:false,

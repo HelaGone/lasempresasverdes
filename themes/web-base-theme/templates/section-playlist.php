@@ -14,9 +14,10 @@
                 src="<?php echo esc_url($thumbnails->default->url); ?>"
                 alt="<?php echo esc_attr($snippet->description); ?>"
                 width="150"
-                height="150">
-              <figcaption class="card_caption">
-                <h3 class="card_heading">
+                height="150"
+                data-asset="<?php echo esc_attr($vId); ?>">
+              <figcaption class="card_caption" data-asset="<?php echo esc_attr($vId); ?>">
+                <h3 class="card_heading" data-asset="<?php echo esc_attr($vId); ?>">
                   <?php echo esc_html($snippet->title); ?>
                 </h3>
                 <time class="date_info" datetime="<?php echo esc_attr(date("c", strtotime($snippet->publishedAt))); ?>"><?php echo esc_html($date); ?></time>
