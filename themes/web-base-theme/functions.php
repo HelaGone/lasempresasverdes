@@ -65,6 +65,12 @@
   endif;
   add_action( 'after_setup_theme', 'wbt_setup' );
 
+  function mytheme_custom_excerpt_length( $length ) {
+    return 15;
+  }
+  add_filter( 'excerpt_length', 'mytheme_custom_excerpt_length', 999 );
+
+
   /**
    * Custom helper functions for this theme.
    */
