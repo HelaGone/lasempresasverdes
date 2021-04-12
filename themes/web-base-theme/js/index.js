@@ -57,6 +57,8 @@
 			}
 		}
 
+		$("body").fitVids();
+
 		const btn_player = document.getElementById("btn_load_pyr");
 		let iframe = document.getElementById("youtube_video_player");
 		const cover = document.getElementById("first_vid_fig");
@@ -66,6 +68,7 @@
 				let value = target.value;
 				cover.style.display = "none";
 				iframe.style.display = "inline";
+				$(".fluid-width-video-wrapper").show();
 			});
 		}
 
@@ -79,6 +82,7 @@
 					iframe.src = asset_url;
 					cover.style.display = "none";
 					iframe.style.display = "inline";
+					$(".fluid-width-video-wrapper").show();
 					window.scrollTo({top:0,left:0,behavior:"smooth"});
 				});
 			});

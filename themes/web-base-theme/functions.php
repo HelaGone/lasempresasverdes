@@ -191,7 +191,10 @@
   	wp_enqueue_style('wbt-style', get_stylesheet_uri(), array(), _S_VERSION);
   	wp_style_add_data('wbt-style', 'rtl', 'replace');
 
+    wp_register_script("wbt-fitvids", JSPATH . "fitvids.js", array("jquery"), _S_VERSION, true);
+
   	wp_enqueue_script( 'wbt-javascript', get_template_directory_uri() . '/dist/index.bundle.js', array("jquery"), _S_VERSION, true );
+    wp_enqueue_script("wbt-fitvids");
   }
   add_action( 'wp_enqueue_scripts', 'wbt_scripts' );
 
