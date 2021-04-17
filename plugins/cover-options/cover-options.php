@@ -15,10 +15,6 @@
 /*
  * Options:
  * co_banner_option
- * co_barra_a_option
- * co_barra_b_option
- * co_barra_c_option
- * co_barra_temas_option
 */
 
 function co_activation_plugin(){
