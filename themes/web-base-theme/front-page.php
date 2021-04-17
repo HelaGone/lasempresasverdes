@@ -64,7 +64,7 @@ $banner_link = ($banner_options["co_banner_input_link"] != "") ? $banner_options
           $args = array(
             "post_type"=>"post",
             "post_status"=>"publish",
-            "posts_per_page"=>2,
+            "posts_per_page"=>3,
             "orderby"=>"date",
             "order"=>"DESC",
             "category_name"=>"columnas"

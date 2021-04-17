@@ -230,7 +230,8 @@ a:hover,a:active {outline: 0;}
 
 /* WIDGET: COLUMNA */
 #columns{margin-top:60px;}
-.col_fig{position:relative;max-width: 512px;margin:0 auto 60px auto;}
+.col_fig{position:relative;max-width: 512px;margin:0 auto 8px auto;}
+.col_fig:last-child{margin-bottom:0;}
 .col_fig img{width: 100%;}
 .col_info{position:absolute;top:0;left:0;right: 0;bottom:0;}
 .col_info a:not(.col_category a){position: absolute;top:0;left: 0;right: 0;bottom:0;}
