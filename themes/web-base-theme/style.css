@@ -278,6 +278,10 @@ a:hover,a:active {outline: 0;}
 .arch_heading{font-size: 24px;font-weight: 400;line-height: 26px;color:var(--dark);margin-top:32px;}
 .arch_excerpt{margin:20px auto;}
 
+/* WIDGET BANNERS */
+#banner_inhouse{margin:60px auto 0 auto;max-width: 920px;}
+#banner_inhouse .banner_frame{text-align: center;}
+
 /*
 	COMPONENTS: FOOTER
 */

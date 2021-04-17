@@ -1,5 +1,9 @@
 <?php get_header(); $wp_query; global $_videos;
-$_videos = json_decode(file_get_contents("/Users/dev/Sites/services/ReadPlaylistClass/videos.json")); ?>
+$_videos = json_decode(file_get_contents("/Users/dev/Sites/services/ReadPlaylistClass/videos.json"));
+$banner_options = get_option('co_banner_option');
+$banner_img_src = ($banner_options["co_banner_input_url"] != "") ? $banner_options["co_banner_input_url"] : null;
+$banner_link = ($banner_options["co_banner_input_link"] != "") ? $banner_options["co_banner_input_link"] : null;
+?>
 <main id="lev-home" class="main_wrapper">
   <section class="full_section">
     <!-- Player -->
@@ -39,6 +43,18 @@ $_videos = json_decode(file_get_contents("/Users/dev/Sites/services/ReadPlaylist
           <?php
         endif; ?>
     </section>
+
+    <?php
+     if($banner_img_src != null&&$banner_link!=null):?>
+        <section id="banner_inhouse">
+          <div class="banner_frame">
+            <a href="<?php echo esc_url($banner_link); ?>" title="Campaña interna" target="_blank" rel="noopener follow">
+              <img src="<?php echo esc_url($banner_img_src); ?>" alt="Campaña interna" width="970" height="250">
+            </a>
+          </div>
+        </section>
+    <?php
+      endif; ?>
 
     <section id="mixed_box">
       <?php get_template_part('templates/section', 'playlist'); ?>
@@ -133,6 +149,7 @@ $_videos = json_decode(file_get_contents("/Users/dev/Sites/services/ReadPlaylist
       <img src="<?php echo THEMEPATH . "images/sponsors/Logo-Tetra-Pak.png"?>" alt="Tetra-Pak" width="120" height="68">
       <img src="<?php echo THEMEPATH . "images/sponsors/natura-preferencial-1024x769.png"?>" alt="Natura" width="120" height="68">
       <img src="<?php echo THEMEPATH . "images/sponsors/pappel-scaled.jpeg"?>" alt="FIF" width="120" height="68">
+      <img src="<?php echo THEMEPATH . "images/sponsors/Logo-City-Express.png"?>" alt="City Express" width="120" height="68">
     </div>
   </section>
 </main>
