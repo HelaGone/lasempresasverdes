@@ -10,8 +10,9 @@
       $pID = $post->ID;
       $authorID = $post->post_author;
       $author_mail = get_the_author_meta("user_email", $authorID);
-      $author_name = get_the_author_meta("display_name", $authorID);
+      $author_name = (get_post_meta($pID, "lev_autor_nota", true)) ? get_post_meta($pID, "lev_autor_nota", true) : get_the_author_meta("display_name", $authorID);
       $grav_hash = md5(trim(strtolower($author_mail)));
+      $author_cover = (get_post_meta($pID, "lev_autor_cover", true)) ? get_post_meta($pID, "lev_autor_cover", true) : "https://www.gravatar.com/avatar/".$grav_hash.".jpg?s=45&d=identicon";
       $tags = get_the_tags($pID);
       array_push($not__in, $pID);
       ?>
@@ -19,7 +20,7 @@
         <header id="single_header" class="inner_wrapper single_text_width">
           <h1 class="single_heading"><?php the_title(); ?></h1>
           <div class="single_info">
-            <img src="<?php echo esc_url("https://www.gravatar.com/avatar/".$grav_hash.".jpg?s=45&d=identicon"); ?>" alt="<?php echo esc_attr($author_name); ?>" width="45" height="45">
+            <img src="<?php echo esc_url($author_cover); ?>" alt="<?php echo esc_attr($author_name); ?>" width="45" height="45">
             <p class="date_info">
               <span><?php echo esc_html("Escrito por " . $author_name. " | "); ?></span>
               <time><?php echo get_the_date("j.F.Y", $pID); ?></time>
