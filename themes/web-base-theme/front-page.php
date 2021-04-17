@@ -46,7 +46,7 @@ $banner_link = ($banner_options["co_banner_input_link"] != "") ? $banner_options
 
     <?php
      if($banner_img_src != null&&$banner_link!=null):?>
-        <section id="banner_inhouse">
+        <section class="banner_inhouse">
           <div class="banner_frame">
             <a href="<?php echo esc_url($banner_link); ?>" title="Campaña interna" target="_blank" rel="noopener follow">
               <img src="<?php echo esc_url($banner_img_src); ?>" alt="Campaña interna" width="970" height="250">

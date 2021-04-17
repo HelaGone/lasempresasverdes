@@ -1,5 +1,8 @@
-<?php get_header(); ?>
-
+<?php get_header(); $not__in = array();
+  $banner_options = get_option('co_banner_option');
+  $banner_img_src_s = ($banner_options["co_banner_single_img"] != "") ? $banner_options["co_banner_single_img"] : null;
+  $banner_link_s = ($banner_options["co_banner_single_link"] != "") ? $banner_options["co_banner_single_link"] : null;
+?>
 <main id="lev_single_post" class="main_wrapper">
   <?php
     if(have_posts()):
@@ -10,6 +13,7 @@
       $author_name = get_the_author_meta("display_name", $authorID);
       $grav_hash = md5(trim(strtolower($author_mail)));
       $tags = get_the_tags($pID);
+      array_push($not__in, $pID);
       ?>
       <article id="<?php echo esc_attr("post-".$pID); ?>">
         <header id="single_header" class="inner_wrapper single_text_width">
@@ -28,6 +32,17 @@
           <div class="ft_frame">
             <?php has_post_thumbnail() ? the_post_thumbnail("featured_1024") : ""; ?>
           </div>
+          <?php
+           if($banner_img_src_s != null&&$banner_link_s!=null):?>
+              <section class="banner_inhouse">
+                <div class="banner_frame">
+                  <a href="<?php echo esc_url($banner_link_s); ?>" title="Campaña interna" target="_blank" rel="noopener follow">
+                    <img src="<?php echo esc_url($banner_img_src_s); ?>" alt="Campaña interna" width="970" height="250">
+                  </a>
+                </div>
+              </section>
+          <?php
+            endif; ?>
           <div class="single_content inner_wrapper single_text_width">
             <?php the_content(); ?>
           </div>
@@ -178,7 +193,9 @@
           </a>
         </section>
       </article>
-  <?php endif;?>
+  <?php
+      get_sidebar("", array("not__in"=>$not__in));
+    endif;?>
 </main>
 
 <?php get_footer(); ?>
