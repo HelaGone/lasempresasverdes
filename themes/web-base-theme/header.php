@@ -27,7 +27,14 @@
     <!-- Slick -->
     <link rel="preconnect" href="//cdn.jsdelivr.net/">
     <script rel="preload" crossorigin type="text/javascript" as="script" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-91771961-12"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-91771961-12');
+    </script>
     <!-- TITLE TAG IS MANAGED BY WORDPRESS -->
   </head>
   <body>
