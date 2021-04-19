@@ -191,6 +191,8 @@ a:hover,a:active {outline: 0;}
 #single_footer .lev_logo_vector{max-height: 60px;width: auto;}
 #single_body .banner_inhouse{margin:20px auto;}
 
+#simple_page .inner_wrapper{padding:30px 25%;}
+#simple_page .inner_wrapper .single_heading{margin-bottom: 20px;}
 
 /*--------------------------------------------------------------
   COMPONENTS: Widgets
