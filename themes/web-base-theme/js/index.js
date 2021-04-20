@@ -57,7 +57,7 @@
 			}
 		}
 
-		//$("body").fitVids();
+		$("body").fitVids();
 
 		const btn_player = document.getElementById("btn_load_pyr");
 		let iframe = document.getElementById("youtube_video_player");
