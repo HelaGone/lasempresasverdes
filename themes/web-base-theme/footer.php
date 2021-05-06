@@ -6,7 +6,7 @@
 
         <ul id="social_follows">
           <li class="follow_item">
-            <a href="https://www.facebook.com/empresasverdesoficial" title="Facebook">
+            <a href="https://www.facebook.com/empresasverdesoficial/" title="Facebook">
               <img src="<?php echo THEMEPATH . "images/social/white/fb.svg" ?>" alt="Síguenos en Facebook" width="36" height="36"/>
             </a>
           </li>
