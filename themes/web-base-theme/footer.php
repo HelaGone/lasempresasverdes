@@ -11,7 +11,7 @@
             </a>
           </li>
           <li class="follow_item">
-            <a href="<?php //echo esc_url(); ?>" title="Twitter">
+            <a href="https://twitter.com/VerdesEmpresas/" title="Twitter">
               <img src="<?php echo THEMEPATH . "images/social/white/tw.svg" ?>" alt="Síguenos en Twitter" width="36" height="36"/>
             </a>
           </li>
