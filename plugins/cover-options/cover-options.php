@@ -58,7 +58,6 @@ if(!class_exists('CoverOptionsNew')):
 			add_settings_section('co_banner_options_section','Banner Home',array($this, 'co_banner_section_callback'),'coverOptionsPage');
 			add_settings_field('co_banner_input_url','Url del banner',array($this, 'co_input_url_field_render'),'coverOptionsPage','co_banner_options_section');
 			add_settings_field('co_banner_input_link','Link del banner',array($this, 'co_input_link_field_render'),'coverOptionsPage','co_banner_options_section');
-			// add_settings_field()
 
 			add_settings_section('co_banner_options_section_2','Banner Single',array($this, 'co_banner_section_2_callback'),'coverOptionsPage');
 			add_settings_field('co_banner_single_img', 'Url del banner', array($this, 'co_render_img_input_sin'), 'coverOptionsPage', 'co_banner_options_section_2');
@@ -67,6 +66,10 @@ if(!class_exists('CoverOptionsNew')):
 			add_settings_section('co_banner_options_section_3', 'Banner Sidebar', array($this, 'co_banner_section_3_callback'), 'coverOptionsPage');
 			add_settings_field('co_banner_side_img', 'Url del banner', array($this, 'co_render_img_input_sid'), 'coverOptionsPage', 'co_banner_options_section_3');
 			add_settings_field('co_banner_side_link', 'Link del banner', array($this, 'co_render_link_input_sid'), 'coverOptionsPage', 'co_banner_options_section_3');
+
+			add_settings_section('co_live_section', 'Youtube live', array($this, 'co_live_callback'), 'coverOptionsPage');
+			add_settings_field('co_live_url', 'ID de Youtube Live', array($this, 'co_render_yt_live_input'), 'coverOptionsPage', 'co_live_section');
+			add_settings_field('co_live_title', 'Título de la transmisión en vivo', array($this, 'co_render_live_title_input'), 'coverOptionsPage', 'co_live_section');
 		}
 
 		public function co_input_url_field_render(){
@@ -116,6 +119,24 @@ if(!class_exists('CoverOptionsNew')):
 			<?php
 		}
 
+		public function co_render_yt_live_input(){
+			$options = get_option('co_banner_option'); ?>
+			<input type="text"
+				name="co_banner_option[co_live_url]"
+				value="<?php echo $options['co_live_url']?>"
+				class="custom_input">
+			<?php
+		}
+
+		public function co_render_live_title_input(){
+			$options = get_option('co_banner_option'); ?>
+			<input type="text"
+				name="co_banner_option[co_live_title]"
+				value="<?php echo $options['co_live_title']?>"
+				class="custom_input">
+			<?php
+		}
+
 		//SECTION BANNER
 		public function co_banner_section_callback(){
 			echo 'Selecciona un banner para el home del sitio';
@@ -129,6 +150,11 @@ if(!class_exists('CoverOptionsNew')):
 		//SECTION BANNER
 		public function co_banner_section_3_callback(){
 			echo 'Selecciona un banner para el <strong><em>sidebar</em></strong> del single';
+		}
+
+		//SECTION BANNER
+		public function co_live_callback(){
+			echo 'Agrega la url de la transmisión en vivo de <strong><em>Youtube</em></strong>';
 		}
 
 

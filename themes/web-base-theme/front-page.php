@@ -4,9 +4,24 @@ $_videos = json_decode(file_get_contents("/Users/dev/Sites/services/ReadPlaylist
 $banner_options = get_option('co_banner_option');
 $banner_img_src = ($banner_options["co_banner_input_url"] != "") ? $banner_options["co_banner_input_url"] : null;
 $banner_link = ($banner_options["co_banner_input_link"] != "") ? $banner_options["co_banner_input_link"] : null;
+$live_url = ($banner_options["co_live_url"]) ? $banner_options["co_live_url"] : null;
+$live_title = ($banner_options["co_live_title"]) ? $banner_options["co_live_title"] : null;
 ?>
 <main id="lev-home" class="main_wrapper">
   <section class="full_section">
+    <?php
+      if($live_url):  ?>
+        <section id="live">
+          <iframe
+            width="1280" height="720"
+            class="ignoreList"
+            src="<?php echo esc_url("https://www.youtube.com/embed/".$live_url); ?>"
+            title="<?php echo esc_attr($live_title); ?>"
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </section>
+    <?php
+      endif; ?>
     <!-- Player -->
     <section id="player_cover">
       <?php
@@ -18,8 +33,7 @@ $banner_link = ($banner_options["co_banner_input_link"] != "") ? $banner_options
           $cover_src = (array_key_exists("maxres", $fv_thumbnails)) ? $fv_thumbnails->maxres->url : $fv_thumbnails->high->url;
           $w = (array_key_exists("maxres", $fv_thumbnails)) ? $fv_thumbnails->maxres->width : $fv_thumbnails->high->width;
           $h = (array_key_exists("maxres", $fv_thumbnails)) ? $fv_thumbnails->maxres->height : $fv_thumbnails->high->height;
-          $fv_asset = "https://www.youtube.com/embed/".$fv_ID;
-          ?>
+          $fv_asset = "https://www.youtube.com/embed/".$fv_ID; ?>
           <figure id="first_vid_fig" class="pyr_fig">
             <img
               src="<?php echo esc_url($cover_src); ?>"

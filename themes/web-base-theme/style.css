@@ -205,7 +205,7 @@ a:hover,a:active {outline: 0;}
 #searchform input[type=submit]{background: none;width:40px;height: 40px;background-repeat: no-repeat;background-position: center;border: none;padding:0;margin-left: 20px;}
 #searchform input[type=text]{background: none;border:none;border-bottom:2px solid var(--lightBrown);width: 65%;background-color: var(--gold);padding: 6px;}
 
-#youtube_video_player, .fluid-width-video-wrapper{display: none;}
+#youtube_video_player, .fluid-width-video-wrapper:not(#live .fluid-width-video-wrapper){display: none;}
 
 .date_info{font-size: 12px;opacity: .8;font-weight: 300;}
 
