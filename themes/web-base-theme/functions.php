@@ -56,6 +56,9 @@
       //Support for align wide
       add_theme_support( 'align-wide' );
 
+      //support for Woocommerce
+      add_theme_support( 'woocommerce' );
+
       // This theme uses wp_nav_menu() in two locations.
       register_nav_menus(array(
         'menu-1' => esc_html__( 'Primary', 'web-base-theme' ),
