@@ -37,7 +37,7 @@
     </script>
     <!-- TITLE TAG IS MANAGED BY WORDPRESS -->
   </head>
-  <body>
+  <body <?php body_class(); ?>>
     <header id="main_header">
       <div class="inner_wrapper flex">
         <a href="<?php echo site_url(); ?>" class="anchor_init" title="Inicio Las empresas verdes">
