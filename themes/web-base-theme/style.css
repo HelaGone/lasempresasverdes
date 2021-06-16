@@ -367,6 +367,9 @@ a:hover,a:active {outline: 0;}
   STORE
 --------------------------------------------------------------*/
 .woocommerce ul.products{border:1px solid red;}
+.woocommerce .content-area{padding-top: 100px;}
+.woocommerce .woocommerce-breadcrumb{background-color: var(--gold);margin-bottom: 0;color:var(--dark);padding:4px 16px;}
+.woocommerce .woocommerce-breadcrumb a{color:var(--dark);}
 
 /*
 	UTILITIES: Media queries

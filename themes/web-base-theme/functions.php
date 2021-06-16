@@ -26,6 +26,16 @@
     remove_action( 'template_redirect', 'rest_output_link_header', 11 );
   }
 
+  /**
+   * Sets off woocommerce breadcrumbs in shop page
+  */
+  function remove_shop_breadcrumbs(){
+      if (is_shop()||is_page()){
+        remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0);
+      }
+  }
+  add_action('template_redirect', 'remove_shop_breadcrumbs' );
+
   if ( ! function_exists( 'wbt_setup' ) ) :
     /**
     * Sets up theme defaults and registers support for various WordPress features.
@@ -191,6 +201,11 @@
    * Enqueue scripts and styles.
    */
   function wbt_scripts() {
+
+    wp_deregister_script('woocommerce-general');
+    wp_deregister_script('woocommerce-smallscreen');
+    wp_deregister_script('woocommerce-layout');
+
   	wp_enqueue_style('wbt-style', get_stylesheet_uri(), array(), _S_VERSION);
   	wp_style_add_data('wbt-style', 'rtl', 'replace');
 
@@ -200,6 +215,7 @@
   	wp_enqueue_script( 'wbt-javascript', get_template_directory_uri() . '/dist/index.bundle.js', array("jquery"), _S_VERSION, true );
   }
   add_action( 'wp_enqueue_scripts', 'wbt_scripts' );
+  add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 
   /**
    * Load Jetpack compatibility file.

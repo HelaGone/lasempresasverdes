@@ -418,6 +418,10 @@ class WC_Frontend_Scripts {
 		// CSS Styles.
 		$enqueue_styles = self::get_styles();
 		if ( $enqueue_styles ) {
+			// echo '<pre>';
+			// 	print_r($enqueue_styles);
+			// echo '</pre>';
+			// die();
 			foreach ( $enqueue_styles as $handle => $args ) {
 				if ( ! isset( $args['has_rtl'] ) ) {
 					$args['has_rtl'] = false;
