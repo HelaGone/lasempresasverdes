@@ -366,8 +366,18 @@ a:hover,a:active {outline: 0;}
 /*--------------------------------------------------------------
   STORE
 --------------------------------------------------------------*/
-.woocommerce ul.products{border:1px solid red;}
-.woocommerce .content-area{padding-top: 100px;}
+.woocommerce{font-family: 'Montserrat', sans-serif;}
+.woocommerce-products-header{margin-top: 24px;}
+.woocommerce-products-header, 
+.woocommerce-notices-wrapper, 
+.woocommerce-result-count, 
+.woocommerce-ordering{padding: 0 16px;}
+.woocommerce-ordering .orderby{width: 100%;border-color: var(--gold);padding: 8px 4px;}
+.woocommerce .products{margin-top: 20px;display: grid;grid-template-columns: repeat(2, 1fr);grid-column-gap: 8px;grid-row-gap: 8px;padding: 0 8px;}
+.woocommerce .products .product .woocommerce-loop-product__link{display: block; position: relative;}
+.woocommerce .products .product .onsale{position: absolute;left: 0; top: 0;background-color: rgba(0, 0, 0, 0.7);padding:8px;color: white;border-radius: 0 0 8px 0;}
+.woocommerce .page-title{font-size: 40px;line-height: 46px; font-weight: 700;font-family: 'Montserrat', sans-serif;}
+.woocommerce .content-area{padding:100px 0 20px 0;}
 .woocommerce .woocommerce-breadcrumb{background-color: var(--gold);margin-bottom: 0;color:var(--dark);padding:4px 16px;}
 .woocommerce .woocommerce-breadcrumb a{color:var(--dark);}
 
