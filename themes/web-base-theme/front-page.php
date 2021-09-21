@@ -25,14 +25,14 @@ $live_title = ($banner_options["co_live_title"]) ? $banner_options["co_live_titl
     <!-- Player -->
     <section id="player_cover">
       <?php
-        if(array_key_exists("items", $_videos)):
+        if(array_key_exists("items", (array)$_videos)):
           $first_vid = $_videos->items[0];
           $fv_snippet = $first_vid->snippet;
           $fv_thumbnails = $fv_snippet->thumbnails;
           $fv_ID = $fv_snippet->resourceId->videoId;
-          $cover_src = (array_key_exists("maxres", $fv_thumbnails)) ? $fv_thumbnails->maxres->url : $fv_thumbnails->high->url;
-          $w = (array_key_exists("maxres", $fv_thumbnails)) ? $fv_thumbnails->maxres->width : $fv_thumbnails->high->width;
-          $h = (array_key_exists("maxres", $fv_thumbnails)) ? $fv_thumbnails->maxres->height : $fv_thumbnails->high->height;
+          $cover_src = (array_key_exists("maxres", (array)$fv_thumbnails)) ? $fv_thumbnails->maxres->url : $fv_thumbnails->high->url;
+          $w = (array_key_exists("maxres", (array)$fv_thumbnails)) ? $fv_thumbnails->maxres->width : $fv_thumbnails->high->width;
+          $h = (array_key_exists("maxres", (array)$fv_thumbnails)) ? $fv_thumbnails->maxres->height : $fv_thumbnails->high->height;
           $fv_asset = "https://www.youtube.com/embed/".$fv_ID; ?>
           <figure id="first_vid_fig" class="pyr_fig">
             <img

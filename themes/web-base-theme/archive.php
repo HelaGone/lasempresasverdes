@@ -4,7 +4,7 @@
     <?php
       $queried_obj = $wp_query->queried_object;
       // debug($queried_obj);
-      $archive_name = (array_key_exists("name", $queried_obj)) ? $queried_obj->name : "Archivo";
+      $archive_name = (array_key_exists("name", (array)$queried_obj)) ? $queried_obj->name : "Archivo";
     ?>
     <h1 class="archive_heading"><?php echo esc_html($archive_name); ?></h1>
     <section id="posts_section">

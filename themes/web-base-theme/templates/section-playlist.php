@@ -1,6 +1,6 @@
 <?php
   global $_videos;
-  if(array_key_exists("items", $_videos)):?>
+  if(array_key_exists("items", (array)$_videos)):?>
     <ul id="playlist" class="play_list">
       <?php
         foreach($_videos->items as $key => $value):
