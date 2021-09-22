@@ -23,39 +23,20 @@ $live_title = ($banner_options["co_live_title"]) ? $banner_options["co_live_titl
     <?php
       endif; ?>
     <!-- Player -->
-    <section id="player_cover">
+    <section id="player_cover" class="top-grid">
       <?php
         if(array_key_exists("items", (array)$_videos)):
           $first_vid = $_videos->items[0];
           $fv_snippet = $first_vid->snippet;
-          $fv_thumbnails = $fv_snippet->thumbnails;
           $fv_ID = $fv_snippet->resourceId->videoId;
-          $cover_src = (array_key_exists("maxres", (array)$fv_thumbnails)) ? $fv_thumbnails->maxres->url : $fv_thumbnails->high->url;
-          $w = (array_key_exists("maxres", (array)$fv_thumbnails)) ? $fv_thumbnails->maxres->width : $fv_thumbnails->high->width;
-          $h = (array_key_exists("maxres", (array)$fv_thumbnails)) ? $fv_thumbnails->maxres->height : $fv_thumbnails->high->height;
           $fv_asset = "https://www.youtube.com/embed/".$fv_ID; ?>
-          <figure id="first_vid_fig" class="pyr_fig">
-            <img
-              src="<?php echo esc_url($cover_src); ?>"
-              alt="<?php echo esc_attr($fv_snippet->description); ?>"
-              width="<?php echo esc_attr($w); ?>"
-              height="<?php echo esc_attr($h); ?>"
-              class="main_cover">
-            <figcaption class="pyr_caption inner_wrapper">
-              <h2 class="pyr_heading"><?php echo esc_html($fv_snippet->title); ?></h2>
-              <p><?php echo esc_html($fv_snippet->description); ?></p>
-              <div class="btn_frame">
-                <img src="<?php echo THEMEPATH . "images/assets/svg/play_arrow.svg" ?>" alt="Play arrow" width="48" height="48"/>
-                <button id="btn_load_pyr" data-value="<?php echo esc_attr($fv_ID); ?>" value="<?php echo esc_attr($fv_ID); ?>" class="lev_button" type="button" name="button">Mira el video</button>
-              </div>
-            </figcaption>
-          </figure>
           <iframe id="youtube_video_player" width="1200" height="675"
             src="<?php echo esc_url($fv_asset); ?>"
             title="<?php echo esc_attr($fv_snippet->title); ?>" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
           <?php
+          get_template_part('templates/section', 'playlist');
         endif; ?>
     </section>
 
@@ -78,7 +59,7 @@ $live_title = ($banner_options["co_live_title"]) ? $banner_options["co_live_titl
           $args = array(
             "post_type"=>"post",
             "post_status"=>"publish",
-            "posts_per_page"=>9,
+            "posts_per_page"=>6,
             "orderby"=>"date",
             "order"=>"DESC",
             "category_name"=>"columnas"
