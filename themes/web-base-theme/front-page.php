@@ -72,14 +72,13 @@ $live_title = ($banner_options["co_live_title"]) ? $banner_options["co_live_titl
       endif; ?>
 
     <section id="mixed_box">
-      <?php get_template_part('templates/section', 'playlist'); ?>
-
-      <div id="columns" class="">
+      <section id="columns" class="simple-grid inner_wrapper">
+        <h2 class="section_heading">Columnas</h2>
         <?php
           $args = array(
             "post_type"=>"post",
             "post_status"=>"publish",
-            "posts_per_page"=>3,
+            "posts_per_page"=>9,
             "orderby"=>"date",
             "order"=>"DESC",
             "category_name"=>"columnas"
@@ -114,47 +113,45 @@ $live_title = ($banner_options["co_live_title"]) ? $banner_options["co_live_titl
             endwhile;
             wp_reset_postdata();
           endif; ?>
-      </div>
+      </section> <!--End columns-->
+      <section id="latest_posts" class="simple-grid inner_wrapper bg_gold">
+        <h2 class="section_heading">Lo más reciente</h2>
+        <?php
+        if(have_posts()):
+          $i = 0;
+          while (have_posts()):
+            the_post();
+            $pId = $post->ID;
+            $cat = get_the_category($pId); ?>
+            <article id="<?php echo esc_attr("art-".$pId); ?>" class="art_fig">
+              <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr($post->post_title); ?>">
+                <?php
+                  if(has_post_thumbnail()):
+                    if($i==0):
+                      the_post_thumbnail("featured_1024");
+                    else:
+                      the_post_thumbnail("featured_480");
+                    endif;
+                  endif; ?>
+              </a>
+              <section class="art_caption">
+                <div class="art_info">
+                  <time class="date_info" datetime="<?php echo get_the_date("c", $pId); ?>"><?php echo get_the_date("j.M.Y ", $pId); ?></time>
+                  <span>
+                    <a href="<?php echo get_term_link($cat[0], "category"); ?>">
+                      <?php echo esc_html($cat[0]->name); ?>
+                    </a>
+                  </span>
+                </div>
+                <h3 class="art_heading"><?php the_title(); ?></h3>
+              </section>
+            </article>
+            <?php
+            $i++;
+          endwhile;
+        endif; ?>
+      </section> <!-- End latest posts -->
     </section>
-  </section>
-
-  <section id="latest" class="bg_gold full_section">
-    <div class="inner_wrapper">
-      <?php
-      if(have_posts()):
-        $i = 0;
-        while (have_posts()):
-          the_post();
-          $pId = $post->ID;
-          $cat = get_the_category($pId); ?>
-          <article id="<?php echo esc_attr("art-".$pId); ?>" class="art_fig">
-            <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr($post->post_title); ?>">
-              <?php
-                if(has_post_thumbnail()):
-                  if($i==0):
-                    the_post_thumbnail("featured_1024");
-                  else:
-                    the_post_thumbnail("featured_480");
-                  endif;
-                endif; ?>
-            </a>
-            <section class="art_caption">
-              <div class="art_info">
-                <time class="date_info" datetime="<?php echo get_the_date("c", $pId); ?>"><?php echo get_the_date("j.M.Y ", $pId); ?></time>
-                <span>
-                  <a href="<?php echo get_term_link($cat[0], "category"); ?>">
-                    <?php echo esc_html($cat[0]->name); ?>
-                  </a>
-                </span>
-              </div>
-              <h3 class="art_heading"><?php the_title(); ?></h3>
-            </section>
-          </article>
-          <?php
-          $i++;
-        endwhile;
-      endif; ?>
-    </div>
   </section>
 
   <section id="sponsors" class="full_section">
