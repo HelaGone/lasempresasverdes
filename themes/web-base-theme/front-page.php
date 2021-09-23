@@ -4,6 +4,8 @@ $_videos = json_decode(file_get_contents("/home/everdes_admin/services/ReadPlayl
 $banner_options = get_option('co_banner_option');
 $banner_img_src = ($banner_options["co_banner_input_url"] != "") ? $banner_options["co_banner_input_url"] : null;
 $banner_link = ($banner_options["co_banner_input_link"] != "") ? $banner_options["co_banner_input_link"] : null;
+$banner_img_src_2 = ($banner_options["co_banner_input_url_2"] != "") ? $banner_options["co_banner_input_url_2"] : null;
+$banner_link_2 = ($banner_options["co_banner_input_link_2"] != "") ? $banner_options["co_banner_input_link_2"] : null;
 $live_url = ($banner_options["co_live_url"]) ? $banner_options["co_live_url"] : null;
 $live_title = ($banner_options["co_live_title"]) ? $banner_options["co_live_title"] : null;
 ?>
@@ -95,7 +97,20 @@ $live_title = ($banner_options["co_live_title"]) ? $banner_options["co_live_titl
             wp_reset_postdata();
           endif; ?>
       </section> <!--End columns-->
-      <section id="latest_posts" class="simple-grid inner_wrapper bg_gold">
+      
+      <?php
+       if($banner_img_src_2 != null&&$banner_link_2!=null): ?>
+          <section class="banner_inhouse">
+            <div class="banner_frame">
+              <a href="<?php echo esc_url($banner_link_2); ?>" title="Campaña interna" target="_blank" rel="noopener follow">
+                <img src="<?php echo esc_url($banner_img_src_2); ?>" alt="Campaña interna" width="970" height="250">
+              </a>
+            </div>
+          </section>
+      <?php
+        endif; ?>
+
+      <section id="latest_posts" class="simple-grid inner_wrapper">
         <h2 class="section_heading">Lo más reciente</h2>
         <?php
         if(have_posts()):
@@ -133,6 +148,7 @@ $live_title = ($banner_options["co_live_title"]) ? $banner_options["co_live_titl
         endif; ?>
       </section> <!-- End latest posts -->
     </section>
+
   </section>
 
   <section id="sponsors" class="full_section">

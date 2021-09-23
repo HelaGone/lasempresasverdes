@@ -30,9 +30,11 @@
    * Sets off woocommerce breadcrumbs in shop page
   */
   function remove_shop_breadcrumbs(){
+    if(function_exists('is_shop')):
       if (is_shop()||is_page()){
         remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0);
       }
+    endif;
   }
   add_action('template_redirect', 'remove_shop_breadcrumbs' );
 
@@ -231,7 +233,7 @@
 
     if($query->is_main_query()){
       if(is_front_page()){
-        $query->set("cat", "-39");
+        $query->set("cat", "-3");
         $query->set("posts_per_page", "6");
       }
     }

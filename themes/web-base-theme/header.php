@@ -21,7 +21,7 @@
     <meta name="msapplication-TileImage" content="<?php echo THEMEPATH . "images/assets/ms-icon-144x144.png" ?>">
     <meta name="theme-color" content="#ffffff">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="preload" crossorigin as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&Oswald:wght@400;700&display=swap" rel="preload" crossorigin as="style">
     <?php wp_head(); ?>
 
     <!-- Slick -->

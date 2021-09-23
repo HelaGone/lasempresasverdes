@@ -55,9 +55,22 @@ if(!class_exists('CoverOptionsNew')):
 		public function co_settings_init(){
 			//BANNER OPTION
 			register_setting('coverOptionsPage', 'co_banner_option');
-			add_settings_section('co_banner_options_section','Banner Home',array($this, 'co_banner_section_callback'),'coverOptionsPage');
+			add_settings_section('co_banner_options_section','Banners Home',array($this, 'co_banner_section_callback'),'coverOptionsPage');
 			add_settings_field('co_banner_input_url','Url del banner',array($this, 'co_input_url_field_render'),'coverOptionsPage','co_banner_options_section');
 			add_settings_field('co_banner_input_link','Link del banner',array($this, 'co_input_link_field_render'),'coverOptionsPage','co_banner_options_section');
+
+			add_settings_field('co_banner_input_url_2','Url del banner 2', array(
+					$this, 'co_input_url_field_render_2'
+				),
+				'coverOptionsPage',
+				'co_banner_options_section'
+			);
+			add_settings_field('co_banner_input_link_2','Link del banner 2', array(
+					$this, 'co_input_link_field_render_2'
+				),
+				'coverOptionsPage',
+				'co_banner_options_section'
+			);
 
 			add_settings_section('co_banner_options_section_2','Banner Single',array($this, 'co_banner_section_2_callback'),'coverOptionsPage');
 			add_settings_field('co_banner_single_img', 'Url del banner', array($this, 'co_render_img_input_sin'), 'coverOptionsPage', 'co_banner_options_section_2');
@@ -72,6 +85,24 @@ if(!class_exists('CoverOptionsNew')):
 			add_settings_field('co_live_title', 'Título de la transmisión en vivo', array($this, 'co_render_live_title_input'), 'coverOptionsPage', 'co_live_section');
 		}
 
+		// FIELD GROUP 2
+		public function co_input_url_field_render_2(){
+			$options = get_option('co_banner_option'); ?>
+			<input type="text" 
+				name="co_banner_option[co_banner_input_url_2]" 
+				value="<?php echo $options['co_banner_input_url_2']; ?>" 
+				class="custom_input">
+		<?php
+		}
+		public function co_input_link_field_render_2(){
+			$options = get_option('co_banner_option'); ?>
+			<input type="text"
+				name="co_banner_option[co_banner_input_link_2]"
+				value="<?php echo $options['co_banner_input_link_2']; ?>"
+				class="custom_input">
+		<?php
+		}
+		// FIELD GROUP 1
 		public function co_input_url_field_render(){
 			$options = get_option('co_banner_option'); ?>
 			<input type="text" name="co_banner_option[co_banner_input_url]" value="<?php echo $options['co_banner_input_url']; ?>" class="custom_input">

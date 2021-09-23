@@ -98,7 +98,8 @@ html {box-sizing: border-box;}
   BASE: Typography
 ---------------------------------------------*/
 body,button,input,select,optgroup,textarea {color: var(--dark);font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;font-size: 1rem;line-height: 1.5;}
-h1,h2,h3,h4,h5,h6 {clear: both;font-family: 'Playfair Display', serif;}
+h2,h3,h4,h5,h6 {clear: both;font-family: 'Oswald', sans-serif;}
+h1{font-family: 'Playfair Display', serif;}
 p {margin-bottom: 1.5em;}
 dfn,cite,em,i {font-style: italic;}
 blockquote {margin: 0 1.5em;}
@@ -152,7 +153,7 @@ a:hover,a:active {outline: 0;}
 .menu-main-menu-container ul ul a {width: 200px;}
 .menu-main-menu-container ul li:hover > ul,.menu-main-menu-container ul li.focus > ul {left: auto;}
 .menu-main-menu-container li {position: relative;text-align: right;margin-bottom:16px;}
-.menu-main-menu-container a {display: block;text-decoration: none;font-size: 18px;line-height: 22px;font-weight: 300;}
+.menu-main-menu-container a {display: block;text-decoration: none;font-size: 18px;line-height: 22px;font-weight: 700;}
 
 @media screen and (min-width: 37.5em) {
 	.menu-toggle {display: none;}
@@ -224,7 +225,7 @@ a:hover,a:active {outline: 0;}
 .col_category{position: absolute;top:0;left: 0;padding:8px 12px;background-color: var(--gold);color:var(--dark);z-index: 2;border-radius: 3px 0 3px 0;}
 .col_category:hover > a{color:var(--dark);opacity: .7;}
 .col_caption{position: absolute;bottom: 7px;right: 0;background-color:var(--dark);color:var(--lightGrey);padding:4px 8px;border-radius: 3px 0 3px 0;max-width: 80%;}
-.col_heading{font-size: 16px;line-height: 18px;font-weight: 500;}
+.col_heading{font-size: 16px;line-height: 20px;font-weight: 500;}
 .col_heading a{color:#fff;}
 
 .col_square_fig{position:relative;max-width: 300px;margin:0 auto;}
@@ -248,7 +249,7 @@ a:hover,a:active {outline: 0;}
 .art_fig img{border-radius: 3px;width:100%;}
 .art_info{display: flex;flex-direction: row;flex-wrap: nowrap;justify-content: space-between;align-items: center;}
 .art_info span{font-size: 14px;font-weight: normal;text-align: right;}
-.art_heading{font-size: 18px;font-weight: 400;line-height: 20px;margin-top:4px;}
+.art_heading{font-size: 16px;font-weight: 400;line-height: 20px;margin-top:4px;}
 
 /* WIDGET SPONSORS*/
 #sponsors{background-color: white;padding:40px 0;}
