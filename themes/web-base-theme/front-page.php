@@ -1,6 +1,6 @@
 <?php get_header(); $wp_query; global $_videos;
-$_videos = json_decode(file_get_contents("/Users/dev/Sites/services/ReadPlaylistClass/videos.json"));
-// $_videos = json_decode(file_get_contents("/home/everdes_admin/services/ReadPlaylistClass/videos.json")); // PROD
+// $_videos = json_decode(file_get_contents("/Users/dev/Sites/services/ReadPlaylistClass/videos.json"));
+$_videos = json_decode(file_get_contents("/home/everdes_admin/services/ReadPlaylistClass/videos.json")); // PROD
 $banner_options = get_option('co_banner_option');
 $banner_img_src = ($banner_options["co_banner_input_url"] != "") ? $banner_options["co_banner_input_url"] : null;
 $banner_link = ($banner_options["co_banner_input_link"] != "") ? $banner_options["co_banner_input_link"] : null;
@@ -23,39 +23,20 @@ $live_title = ($banner_options["co_live_title"]) ? $banner_options["co_live_titl
     <?php
       endif; ?>
     <!-- Player -->
-    <section id="player_cover">
+    <section id="player_cover" class="top-grid">
       <?php
-        if(array_key_exists("items", $_videos)):
+        if(array_key_exists("items", (array)$_videos)):
           $first_vid = $_videos->items[0];
           $fv_snippet = $first_vid->snippet;
-          $fv_thumbnails = $fv_snippet->thumbnails;
           $fv_ID = $fv_snippet->resourceId->videoId;
-          $cover_src = (array_key_exists("maxres", $fv_thumbnails)) ? $fv_thumbnails->maxres->url : $fv_thumbnails->high->url;
-          $w = (array_key_exists("maxres", $fv_thumbnails)) ? $fv_thumbnails->maxres->width : $fv_thumbnails->high->width;
-          $h = (array_key_exists("maxres", $fv_thumbnails)) ? $fv_thumbnails->maxres->height : $fv_thumbnails->high->height;
           $fv_asset = "https://www.youtube.com/embed/".$fv_ID; ?>
-          <figure id="first_vid_fig" class="pyr_fig">
-            <img
-              src="<?php echo esc_url($cover_src); ?>"
-              alt="<?php echo esc_attr($fv_snippet->description); ?>"
-              width="<?php echo esc_attr($w); ?>"
-              height="<?php echo esc_attr($h); ?>"
-              class="main_cover">
-            <figcaption class="pyr_caption inner_wrapper">
-              <h2 class="pyr_heading"><?php echo esc_html($fv_snippet->title); ?></h2>
-              <p><?php echo esc_html($fv_snippet->description); ?></p>
-              <div class="btn_frame">
-                <img src="<?php echo THEMEPATH . "images/assets/svg/play_arrow.svg" ?>" alt="Play arrow" width="48" height="48"/>
-                <button id="btn_load_pyr" data-value="<?php echo esc_attr($fv_ID); ?>" value="<?php echo esc_attr($fv_ID); ?>" class="lev_button" type="button" name="button">Mira el video</button>
-              </div>
-            </figcaption>
-          </figure>
           <iframe id="youtube_video_player" width="1200" height="675"
             src="<?php echo esc_url($fv_asset); ?>"
             title="<?php echo esc_attr($fv_snippet->title); ?>" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
           <?php
+          get_template_part('templates/section', 'playlist');
         endif; ?>
     </section>
 
@@ -72,14 +53,13 @@ $live_title = ($banner_options["co_live_title"]) ? $banner_options["co_live_titl
       endif; ?>
 
     <section id="mixed_box">
-      <?php get_template_part('templates/section', 'playlist'); ?>
-
-      <div id="columns" class="">
+      <section id="columns" class="simple-grid inner_wrapper">
+        <h2 class="section_heading">Columnas</h2>
         <?php
           $args = array(
             "post_type"=>"post",
             "post_status"=>"publish",
-            "posts_per_page"=>3,
+            "posts_per_page"=>6,
             "orderby"=>"date",
             "order"=>"DESC",
             "category_name"=>"columnas"
@@ -114,47 +94,45 @@ $live_title = ($banner_options["co_live_title"]) ? $banner_options["co_live_titl
             endwhile;
             wp_reset_postdata();
           endif; ?>
-      </div>
+      </section> <!--End columns-->
+      <section id="latest_posts" class="simple-grid inner_wrapper bg_gold">
+        <h2 class="section_heading">Lo más reciente</h2>
+        <?php
+        if(have_posts()):
+          $i = 0;
+          while (have_posts()):
+            the_post();
+            $pId = $post->ID;
+            $cat = get_the_category($pId); ?>
+            <article id="<?php echo esc_attr("art-".$pId); ?>" class="art_fig">
+              <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr($post->post_title); ?>">
+                <?php
+                  if(has_post_thumbnail()):
+                    if($i==0):
+                      the_post_thumbnail("featured_1024");
+                    else:
+                      the_post_thumbnail("featured_480");
+                    endif;
+                  endif; ?>
+              </a>
+              <section class="art_caption">
+                <div class="art_info">
+                  <time class="date_info" datetime="<?php echo get_the_date("c", $pId); ?>"><?php echo get_the_date("j.M.Y ", $pId); ?></time>
+                  <span>
+                    <a href="<?php echo get_term_link($cat[0], "category"); ?>">
+                      <?php echo esc_html($cat[0]->name); ?>
+                    </a>
+                  </span>
+                </div>
+                <h3 class="art_heading"><?php the_title(); ?></h3>
+              </section>
+            </article>
+            <?php
+            $i++;
+          endwhile;
+        endif; ?>
+      </section> <!-- End latest posts -->
     </section>
-  </section>
-
-  <section id="latest" class="bg_gold full_section">
-    <div class="inner_wrapper">
-      <?php
-      if(have_posts()):
-        $i = 0;
-        while (have_posts()):
-          the_post();
-          $pId = $post->ID;
-          $cat = get_the_category($pId); ?>
-          <article id="<?php echo esc_attr("art-".$pId); ?>" class="art_fig">
-            <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr($post->post_title); ?>">
-              <?php
-                if(has_post_thumbnail()):
-                  if($i==0):
-                    the_post_thumbnail("featured_1024");
-                  else:
-                    the_post_thumbnail("featured_480");
-                  endif;
-                endif; ?>
-            </a>
-            <section class="art_caption">
-              <div class="art_info">
-                <time class="date_info" datetime="<?php echo get_the_date("c", $pId); ?>"><?php echo get_the_date("j.M.Y ", $pId); ?></time>
-                <span>
-                  <a href="<?php echo get_term_link($cat[0], "category"); ?>">
-                    <?php echo esc_html($cat[0]->name); ?>
-                  </a>
-                </span>
-              </div>
-              <h3 class="art_heading"><?php the_title(); ?></h3>
-            </section>
-          </article>
-          <?php
-          $i++;
-        endwhile;
-      endif; ?>
-    </div>
   </section>
 
   <section id="sponsors" class="full_section">

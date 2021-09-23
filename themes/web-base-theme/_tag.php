@@ -1,6 +1,6 @@
 <?php get_header(); global $wp_query;
   $queried_obj = $wp_query->queried_object;
-  $archive_name = (array_key_exists("name", $queried_obj)) ? $queried_obj->name : "Archivo"; ?>
+  $archive_name = (array_key_exists("name", (array)$queried_obj)) ? $queried_obj->name : "Archivo"; ?>
 <main id="lev_tag_archive" class="main_wrapper">
   <section>
     <h1><?php echo esc_html($archive_name); ?></h1>

@@ -1,6 +1,6 @@
 <?php
   global $_videos;
-  if(array_key_exists("items", $_videos)):?>
+  if(array_key_exists("items", (array)$_videos)):?>
     <ul id="playlist" class="play_list">
       <?php
         foreach($_videos->items as $key => $value):
@@ -10,13 +10,7 @@
           $vId = $snippet->resourceId->videoId; ?>
           <li class="list_item">
             <figure class="card_fig">
-              <img
-                src="<?php echo esc_url($thumbnails->default->url); ?>"
-                alt="<?php echo esc_attr($snippet->description); ?>"
-                width="150"
-                height="150"
-                data-asset="<?php echo esc_attr($vId); ?>">
-              <figcaption class="card_caption" data-asset="<?php echo esc_attr($vId); ?>">
+              <figcaption class="card_caption" data-asset=" <?php echo esc_attr($vId); ?>">
                 <h3 class="card_heading" data-asset="<?php echo esc_attr($vId); ?>">
                   <?php echo esc_html($snippet->title); ?>
                 </h3>
