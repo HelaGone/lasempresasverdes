@@ -381,17 +381,27 @@ a:hover,a:active {outline: 0;}
 .woocommerce .woocommerce-breadcrumb{background-color: var(--gold);margin-bottom: 0;color:var(--dark);padding:4px 16px;font-size: 12px;line-height: 16px;}
 .woocommerce .woocommerce-breadcrumb a{color:var(--dark);text-decoration: underline;}
 .woocommerce-message{font-size: 12px;line-height: 16px;padding: 12px 0;}
+
+/*SINGLE PRODUCT*/
 .single-product .product .summary, 
 .single-product .product .woocommerce-tabs{padding: 0 8px;}
 .single-product .product .quantity input{width: 40px;}
 .single-product .product .cart button{background: none; background-color: var(--gold);border: none;display: grid;place-items: center;padding: 8px;margin-top: 12px;box-shadow: 1px 3px 6px rgba(0, 0, 0, .3);}
+
+/*CART*/
 .added_to_cart{border: 2px solid var(--gold);border-radius: 5px;color: var(--gold);box-shadow: 2px 4px 8px rgba(0,0,0,0.2);padding: 4px 8px;display: inline-block;margin-top: 8px;}
-.product-remove a{padding: 8px;font-size: 24px;color: red;font-weight: 700;}
+.product-remove a{padding:1px 8px;font-size: 24px;color: red;font-weight: 700;}
+.product-remove a:after{content: "Eliminar del carrito";font-size: 12px;font-weight: 400;}
+.woocommerce-cart-form .shop_table thead{display: none;}
+.woocommerce-cart-form .shop_table td{display: block;padding: 4px;}
+
+.woocommerce-cart-form .shop_table .product-thumbnail{display: none;}
+.woocommerce-cart-form .shop_table .product-name{background-color: var(--brown);color: white;}
+.woocommerce-cart-form .shop_table .product-name a{color: inherit;}
 .shop_table_responsive th{font-weight: 700;}
 .product-thumbnail img{max-width: 90px;height: auto;}
 
-/*SINGLE PRODUCT*/
-/*.single-product .product{padding: 4px 8px;}*/
+
 
 
 /*
