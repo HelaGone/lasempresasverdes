@@ -199,6 +199,9 @@
   }
   add_action( 'widgets_init', 'wbt_widgets_init' );
 
+  // Remove Wocommerce styles
+  add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+  
   /**
    * Enqueue scripts and styles.
    */
@@ -217,7 +220,7 @@
   	wp_enqueue_script( 'wbt-javascript', get_template_directory_uri() . '/dist/index.bundle.js', array("jquery"), _S_VERSION, true );
   }
   add_action( 'wp_enqueue_scripts', 'wbt_scripts' );
-  add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+  
 
   /**
    * Load Jetpack compatibility file.
