@@ -359,9 +359,20 @@ a:hover,a:active {outline: 0;}
 .woocommerce .woocommerce-breadcrumb a{color:var(--dark);text-decoration: underline;}
 .woocommerce-message{font-size: 12px;line-height: 16px;padding: 12px 0;}
 
-.woocommerce-billing-fields h3{font-size: 22px;margin-bottom: 12px;}
+.woocommerce-billing-fields h3, 
+.woocommerce-additional-fields h3, #order_review_heading{font-size: 22px;margin-bottom: 12px;}
 .form-row label{margin-right: 12px;}
-.form-row input{border: none;border-bottom: 2px solid var(--gold);width: 80%;background-color: rgba(191, 171, 73, .3);}
+.form-row input:not(input[type=checkbox]){border: none;border-bottom: 2px solid var(--gold);width: 80%;background-color: rgba(191, 171, 73, .3);}
+.form-row.notes textarea{width: 80%;}
+.form-row.notes .woocommerce-input-wrapper{display: block;}
+
+.woocommerce-checkout-review-order-table thead{background-color: var(--brown);}
+.woocommerce-checkout-review-order-table thead th{text-align: left;padding:4px 8px;font-weight: 700;color: white;}
+.woocommerce-checkout-review-order-table tbody td{padding: 4px;}
+
+.wc_payment_methods .woocommerce-notice{color: tomato;font-size: 12px;line-height: 16px;margin: 12px 0;}
+.woocommerce-privacy-policy-text p, .woocommerce-terms-and-conditions-checkbox-text{font-size: 12px;line-height: 16px;}
+.form-row.place-order button[type=submit]{width: 100%;max-width: 360px;margin: auto;background-color: var(--gold);border: none;color: white;font-weight: 700;padding: 12px 8px;text-decoration: underline;border-radius: 3px;box-shadow: 1px 3px 8px rgba(0, 0, 0, .3);}
 
 /*SINGLE PRODUCT*/
 .single-product .product .summary, 
