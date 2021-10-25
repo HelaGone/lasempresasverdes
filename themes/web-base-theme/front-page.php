@@ -1,6 +1,6 @@
 <?php get_header(); $wp_query; global $_videos;
-$_videos = json_decode(file_get_contents("/Users/dev/Sites/services/ReadPlaylistClass/videos.json"));
-// $_videos = json_decode(file_get_contents("/home/everdes_admin/services/ReadPlaylistClass/videos.json")); // PROD
+// $_videos = json_decode(file_get_contents("/Users/dev/Sites/services/ReadPlaylistClass/videos.json"));
+$_videos = json_decode(file_get_contents("/home/everdes_admin/services/ReadPlaylistClass/videos.json")); // PROD
 $banner_options = get_option('co_banner_option');
 $banner_img_src = ($banner_options["co_banner_input_url"] != "") ? $banner_options["co_banner_input_url"] : null;
 $banner_link = ($banner_options["co_banner_input_link"] != "") ? $banner_options["co_banner_input_link"] : null;
@@ -155,12 +155,14 @@ $live_title = ($banner_options["co_live_title"]) ? $banner_options["co_live_titl
     <div class="sponsors_carousel">
       <img src="<?php echo THEMEPATH . "images/sponsors/logo-fif.jpg"?>" alt="FIF" width="120" height="68">
       <img src="<?php echo THEMEPATH . "images/sponsors/Logo-Henkel-PNG-1024x573.png"?>" alt="Henkel" width="120" height="68">
-      <img src="<?php echo THEMEPATH . "images/sponsors/Logo-Tetra-Pak.png"?>" alt="Tetra-Pak" width="120" height="68">
+      <img src="<?php echo THEMEPATH . "images/sponsors/logo_tetra_pak.jpg"?>" alt="Tetra-Pak" width="120" height="68">
       <img src="<?php echo THEMEPATH . "images/sponsors/natura-preferencial-1024x769.png"?>" alt="Natura" width="120" height="68">
       <img src="<?php echo THEMEPATH . "images/sponsors/pappel-scaled.jpeg"?>" alt="FIF" width="120" height="68">
       <img src="<?php echo THEMEPATH . "images/sponsors/Logo-City-Express.png"?>" alt="City Express" width="120" height="68">
       <img src="<?php echo THEMEPATH . "images/sponsors/dow.png"?>" alt="DOW" width="120" height="68">
       <img src="<?php echo THEMEPATH . "images/sponsors/mov_circl_sqre.png"?>" alt="Movimiento Circular" width="120" height="68">
+      <img src="<?php echo THEMEPATH . "images/sponsors/logo_nestle_2020.png"?>" alt="Nestlé" width="120" height="68">
+      <img src="<?php echo THEMEPATH . "images/sponsors/logo_grupo_herdez.png"?>" alt="Grupo Herdez" width="120" height="68">
     </div>
   </section>
 </main>
