@@ -406,6 +406,12 @@ a:hover,a:active {outline: 0;}
 .cart_totals h2{font-weight: 700;}
 .wc-proceed-to-checkout{margin: 20px 0;}
 .wc-proceed-to-checkout a{padding: 8px;font-weight: 700; color: white;background-color: var(--gold);border-radius: 3px;box-shadow: 1px 3px 6px rgba(0, 0, 0, .3);}
+.shop_table_responsive th, .order_details th{text-align: left;}
+.download-file{text-decoration: underline;font-weight: 700;}
+.woocommerce-order-details__title{font-weight: 700;}
+.order_details tfoot .row{text-align: right;}
+
+
 
 
 

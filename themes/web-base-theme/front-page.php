@@ -114,7 +114,6 @@ $live_title = ($banner_options["co_live_title"]) ? $banner_options["co_live_titl
         <h2 class="section_heading">Lo más reciente</h2>
         <?php
         if(have_posts()):
-          $i = 0;
           while (have_posts()):
             the_post();
             $pId = $post->ID;
@@ -123,11 +122,7 @@ $live_title = ($banner_options["co_live_title"]) ? $banner_options["co_live_titl
               <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr($post->post_title); ?>">
                 <?php
                   if(has_post_thumbnail()):
-                    if($i==0):
-                      the_post_thumbnail("featured_1024");
-                    else:
-                      the_post_thumbnail("featured_480");
-                    endif;
+                    the_post_thumbnail("middle_480");
                   endif; ?>
               </a>
               <section class="art_caption">
@@ -143,7 +138,6 @@ $live_title = ($banner_options["co_live_title"]) ? $banner_options["co_live_titl
               </section>
             </article>
             <?php
-            $i++;
           endwhile;
         endif; ?>
       </section> <!-- End latest posts -->
