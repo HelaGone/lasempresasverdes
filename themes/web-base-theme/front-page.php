@@ -7,8 +7,7 @@ $banner_link = ($banner_options["co_banner_input_link"] != "") ? $banner_options
 $banner_img_src_2 = ($banner_options["co_banner_input_url_2"] != "") ? $banner_options["co_banner_input_url_2"] : null;
 $banner_link_2 = ($banner_options["co_banner_input_link_2"] != "") ? $banner_options["co_banner_input_link_2"] : null;
 $live_url = ($banner_options["co_live_url"]) ? $banner_options["co_live_url"] : null;
-$live_title = ($banner_options["co_live_title"]) ? $banner_options["co_live_title"] : null;
-?>
+$live_title = ($banner_options["co_live_title"]) ? $banner_options["co_live_title"] : null; ?>
 <main id="lev-home" class="main_wrapper">
   <section class="full_section">
     <?php
@@ -110,11 +109,37 @@ $live_title = ($banner_options["co_live_title"]) ? $banner_options["co_live_titl
       <?php
         endif; ?>
 
+      <section id="store_posts" class="inner_wrapper">
+        <div class="products_wrapper">
+          <div class="store_intro">
+            <h2 class="section_heading">Nuestras publicaciones</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. </p>
+            <a href="<?php echo site_url('/tienda/'); ?>" class="btn_store">Ir a la tienda</a>
+          </div>
+          <ul class="products simple-grid">
+            <?php
+              $args = array(
+                'post_type' => 'product',
+                'posts_per_page' => 3
+                );
+              $loop = new WP_Query( $args );
+              if ( $loop->have_posts() ) {
+                while ( $loop->have_posts() ) : $loop->the_post();
+                  wc_get_template_part( 'content', 'product' );
+                endwhile;
+              } else {
+                echo __( 'No products found' );
+              }
+              wp_reset_postdata(); ?>
+          </ul>
+        </div>
+      </section>
+
       <section id="latest_posts" class="simple-grid inner_wrapper">
         <h2 class="section_heading">Lo más reciente</h2>
         <?php
         if(have_posts()):
-          $i = 0;
           while (have_posts()):
             the_post();
             $pId = $post->ID;
@@ -123,11 +148,7 @@ $live_title = ($banner_options["co_live_title"]) ? $banner_options["co_live_titl
               <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr($post->post_title); ?>">
                 <?php
                   if(has_post_thumbnail()):
-                    if($i==0):
-                      the_post_thumbnail("featured_1024");
-                    else:
-                      the_post_thumbnail("featured_480");
-                    endif;
+                    the_post_thumbnail("middle_480");
                   endif; ?>
               </a>
               <section class="art_caption">
@@ -143,7 +164,6 @@ $live_title = ($banner_options["co_live_title"]) ? $banner_options["co_live_titl
               </section>
             </article>
             <?php
-            $i++;
           endwhile;
         endif; ?>
       </section> <!-- End latest posts -->
