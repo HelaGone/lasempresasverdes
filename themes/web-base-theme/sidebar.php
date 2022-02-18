@@ -2,7 +2,7 @@
   $banner_options = get_option('co_banner_option');
   $banner_img_src = ($banner_options["co_banner_side_img"] != "") ? $banner_options["co_banner_side_img"] : null;
   $banner_link = ($banner_options["co_banner_side_link"] != "") ? $banner_options["co_banner_side_link"] : null;
-  $num_posts = ($banner_img_src!=null) ? 2 : 3;
+  $num_posts = ($banner_img_src!=null) ? 3 : 4;
   $not_in = array_key_exists("not__in", (array)$args) ? $args["not__in"] : array();
   $query = array(
     "post_type"=>"post",
@@ -14,7 +14,7 @@
   );
   $related = new WP_Query($query);
   if($related->have_posts()): ?>
-    <section id="sidebar" class="flex related_sidebar">
+    <section id="sidebar" class="simple-grid related_sidebar">
     <?php
       if($banner_img_src!=null): ?>
         <div class="banner_frame col_square_fig">
