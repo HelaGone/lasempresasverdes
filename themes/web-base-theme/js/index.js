@@ -21,11 +21,20 @@
 			return result;
 		}
 
+		let numSlides = 3;
+		if(window.innerWidth >= 1024){
+			numSlides = 6
+		}
+
+		if(window.innerWidth < 1024 && window.innerWidth >= 420){
+			numSlides = 4;
+		}
+
     $('.sponsors_carousel').slick({
       accesibility: true,
       arrows:false,
       draggable:false,
-      slidesToShow: 3,
+      slidesToShow: numSlides,
       autoplay:true,
       autoplaySpeed: 666,
       centerMode:true,
