@@ -183,6 +183,7 @@ $live_title = ($banner_options["co_live_title"]) ? $banner_options["co_live_titl
       <img src="<?php echo THEMEPATH . "images/sponsors/mov_circl_sqre.png"?>" alt="Movimiento Circular" width="120" height="68">
       <img src="<?php echo THEMEPATH . "images/sponsors/logo_nestle_2020.png"?>" alt="Nestlé" width="120" height="68">
       <img src="<?php echo THEMEPATH . "images/sponsors/logo_grupo_herdez.png"?>" alt="Grupo Herdez" width="120" height="68">
+      <img src="<?php echo THEMEPATH . "images/sponsors/GM_Gradient_Brandmark.png"?>" alt="General Motors" width="120" height="68">
     </div>
   </section>
 </main>
