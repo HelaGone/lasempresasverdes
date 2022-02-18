@@ -6,6 +6,8 @@ $banner_img_src = ($banner_options["co_banner_input_url"] != "") ? $banner_optio
 $banner_link = ($banner_options["co_banner_input_link"] != "") ? $banner_options["co_banner_input_link"] : null;
 $banner_img_src_2 = ($banner_options["co_banner_input_url_2"] != "") ? $banner_options["co_banner_input_url_2"] : null;
 $banner_link_2 = ($banner_options["co_banner_input_link_2"] != "") ? $banner_options["co_banner_input_link_2"] : null;
+$banner_img_src_3 = ($banner_options["co_banner_input_url_3"] != "") ? $banner_options["co_banner_input_url_3"] : null;
+$banner_link_3 = ($banner_options["co_banner_input_link_3"] != "") ? $banner_options["co_banner_input_link_3"] : null;
 $live_url = ($banner_options["co_live_url"]) ? $banner_options["co_live_url"] : null;
 $live_title = ($banner_options["co_live_title"]) ? $banner_options["co_live_title"] : null; ?>
 <main id="lev-home" class="main_wrapper">
@@ -135,6 +137,18 @@ $live_title = ($banner_options["co_live_title"]) ? $banner_options["co_live_titl
           </ul>
         </div>
       </section>
+
+      <?php
+       if($banner_img_src_3 != null&&$banner_link_3!=null): ?>
+          <section class="banner_inhouse">
+            <div class="banner_frame">
+              <a href="<?php echo esc_url($banner_link_3); ?>" title="Campaña interna" target="_blank" rel="noopener follow">
+                <img src="<?php echo esc_url($banner_img_src_3); ?>" alt="Campaña interna" width="970" height="250">
+              </a>
+            </div>
+          </section>
+      <?php
+        endif; ?>
 
       <section id="latest_posts" class="simple-grid inner_wrapper">
         <h2 class="section_heading">Lo más reciente</h2>
