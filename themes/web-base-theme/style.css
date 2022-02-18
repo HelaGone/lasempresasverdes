@@ -219,7 +219,7 @@ a:hover,a:active {outline: 0;}
 
 /* WIDGET SIMPLE CARD */
 #latest .inner_wrapper{padding-top:60px;padding-bottom:60px;}
-#latest_posts{margin-top: 40px;}
+#latest_posts, #store_posts{margin-top: 40px;}
 .bg_gold{background-color: var(--gold);}
 .art_fig{margin-bottom:8px;padding-bottom:20px;border-radius: 3px;overflow: hidden;}
 .art_fig:last-child{margin-bottom: 0;}
