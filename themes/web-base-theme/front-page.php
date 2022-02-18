@@ -109,7 +109,7 @@ $live_title = ($banner_options["co_live_title"]) ? $banner_options["co_live_titl
       <?php
         endif; ?>
 
-      <section id="store_posts" class="inner_wrapper">
+      <!-- <section id="store_posts" class="inner_wrapper">
         <div class="products_wrapper">
           <div class="store_intro">
             <h2 class="section_heading">Nuestras publicaciones</h2>
@@ -134,7 +134,7 @@ $live_title = ($banner_options["co_live_title"]) ? $banner_options["co_live_titl
               wp_reset_postdata(); ?>
           </ul>
         </div>
-      </section>
+      </section> -->
 
       <section id="latest_posts" class="simple-grid inner_wrapper">
         <h2 class="section_heading">Lo más reciente</h2>
