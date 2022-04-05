@@ -376,7 +376,7 @@ a:hover,a:active {outline: 0;}
 .woocommerce .woocommerce-breadcrumb a{color:var(--dark);text-decoration: underline;}
 .woocommerce-message{font-size: 12px;line-height: 16px;padding: 12px 0;}
 
-.woocommerce-checkout.customize-support .main_wrapper .inner_wrapper{max-width: 660px;margin: auto;}
+.woocommerce-checkout .main_wrapper .inner_wrapper{max-width: 660px;margin: auto;}
 
 .woocommerce-billing-fields h3, 
 .woocommerce-additional-fields h3, #order_review_heading{font-size: 22px;margin-bottom: 12px;}
