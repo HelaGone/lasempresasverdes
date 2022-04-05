@@ -376,10 +376,12 @@ a:hover,a:active {outline: 0;}
 .woocommerce .woocommerce-breadcrumb a{color:var(--dark);text-decoration: underline;}
 .woocommerce-message{font-size: 12px;line-height: 16px;padding: 12px 0;}
 
+.woocommerce-checkout.customize-support .main_wrapper .inner_wrapper{max-width: 660px;margin: auto;}
+
 .woocommerce-billing-fields h3, 
 .woocommerce-additional-fields h3, #order_review_heading{font-size: 22px;margin-bottom: 12px;}
 .form-row label{margin-right: 12px;}
-.form-row input:not(input[type=checkbox]){border: none;border-bottom: 2px solid var(--gold);width: 80%;background-color: rgba(191, 171, 73, .3);}
+.form-row input:not(input[type=checkbox]){border: none;border-bottom: 2px solid var(--gold);width: 80%;}
 .form-row.notes textarea{width: 80%;}
 .form-row.notes .woocommerce-input-wrapper{display: block;}
 
