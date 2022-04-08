@@ -1,6 +1,6 @@
 <?php get_header(); $wp_query; global $_videos;
-$_videos = json_decode(file_get_contents("/Users/dev/Sites/services/ReadPlaylistClass/videos.json"));
-// $_videos = json_decode(file_get_contents("/home/everdes_admin/services/ReadPlaylistClass/videos.json")); // PROD
+// $_videos = json_decode(file_get_contents("/Users/dev/Sites/services/ReadPlaylistClass/videos.json"));
+$_videos = json_decode(file_get_contents("/home/everdes_admin/services/ReadPlaylistClass/videos.json")); // PROD
 $banner_options = get_option('co_banner_option');
 $banner_img_src = ($banner_options["co_banner_input_url"] != "") ? $banner_options["co_banner_input_url"] : null;
 $banner_link = ($banner_options["co_banner_input_link"] != "") ? $banner_options["co_banner_input_link"] : null;
@@ -9,7 +9,15 @@ $banner_link_2 = ($banner_options["co_banner_input_link_2"] != "") ? $banner_opt
 $banner_img_src_3 = ($banner_options["co_banner_input_url_3"] != "") ? $banner_options["co_banner_input_url_3"] : null;
 $banner_link_3 = ($banner_options["co_banner_input_link_3"] != "") ? $banner_options["co_banner_input_link_3"] : null;
 $live_url = ($banner_options["co_live_url"]) ? $banner_options["co_live_url"] : null;
-$live_title = ($banner_options["co_live_title"]) ? $banner_options["co_live_title"] : null; ?>
+$live_title = ($banner_options["co_live_title"]) ? $banner_options["co_live_title"] : null;
+$args = array(
+  'post_type' => 'product',
+  'posts_per_page' => 1,
+  'orderby'=>'date',
+  'order'=>'DESC'
+  );
+$latest = new WP_Query( $args );
+ ?>
 <main id="lev-home" class="main_wrapper">
   <section class="full_section">
     <?php
@@ -27,20 +35,36 @@ $live_title = ($banner_options["co_live_title"]) ? $banner_options["co_live_titl
       endif; ?>
     <!-- Player -->
     <section id="player_cover" class="top-grid">
-      <?php
-        if(array_key_exists("items", (array)$_videos)):
-          $first_vid = $_videos->items[0];
-          $fv_snippet = $first_vid->snippet;
-          $fv_ID = $fv_snippet->resourceId->videoId;
-          $fv_asset = "https://www.youtube.com/embed/".$fv_ID; ?>
-          <iframe id="youtube_video_player" width="1200" height="675"
-            src="<?php echo esc_url($fv_asset); ?>"
-            title="<?php echo esc_attr($fv_snippet->title); ?>" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-          <?php
-          get_template_part('templates/section', 'playlist');
-        endif; ?>
+      <div>
+        <?php
+          if(array_key_exists("items", (array)$_videos)):
+            $first_vid = $_videos->items[0];
+            $fv_snippet = $first_vid->snippet;
+            $fv_ID = $fv_snippet->resourceId->videoId;
+            $fv_asset = "https://www.youtube.com/embed/".$fv_ID; ?>
+            <iframe id="youtube_video_player" width="1200" height="675"
+              src="<?php echo esc_url($fv_asset); ?>"
+              title="<?php echo esc_attr($fv_snippet->title); ?>" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+            <?php
+            get_template_part('templates/section', 'playlist');
+          endif; ?>
+      </div>
+        <div class="latest_publ">
+          <?php 
+            if($latest->have_posts()):
+              while($latest->have_posts()):
+                $latest->the_post();
+                setup_postdata($post);?>
+                <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr($post->post_title); ?>">
+                  <?php the_post_thumbnail(); ?>
+                </a>
+                <?php 
+              endwhile;
+              wp_reset_postdata();
+            endif; ?>
+        </div>
     </section>
 
     <?php
