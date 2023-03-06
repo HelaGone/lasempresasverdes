@@ -221,6 +221,9 @@ $latest = new WP_Query( $args );
       <img src="<?php echo THEMEPATH . "images/sponsors/logo_nestle_2020.png"?>" alt="Nestlé" width="120" height="68">
       <img src="<?php echo THEMEPATH . "images/sponsors/logo_grupo_herdez.png"?>" alt="Grupo Herdez" width="120" height="68">
       <img src="<?php echo THEMEPATH . "images/sponsors/GM_Gradient_Brandmark.png"?>" alt="General Motors" width="120" height="68">
+      <!-- Added 14/10/2022 -->
+      <img src="<?php echo THEMEPATH . "images/sponsors/BBVA_TAGLINE_ESP_RGB RIGHT_DDB.png"?>" alt="BBVA" width="120" height="68">
+      <img src="<?php echo THEMEPATH . "images/sponsors/Unilever.jpg"?>" alt="Unilever" width="120" height="68">
     </div>
   </section>
 </main>
