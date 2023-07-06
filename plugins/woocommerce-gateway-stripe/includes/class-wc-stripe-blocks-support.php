@@ -95,6 +95,13 @@ final class WC_Stripe_Blocks_Support extends AbstractPaymentMethodType {
 				: $dependencies;
 		}
 
+		wp_enqueue_style(
+			'wc-stripe-blocks-checkout-style',
+			WC_STRIPE_PLUGIN_URL . '/build/upe_blocks.css',
+			[],
+			$version
+		);
+
 		wp_register_script(
 			'wc-stripe-blocks-integration',
 			WC_STRIPE_PLUGIN_URL . '/build/upe_blocks.js',
@@ -293,7 +300,7 @@ final class WC_Stripe_Blocks_Support extends AbstractPaymentMethodType {
 		if ( 'USD' === get_woocommerce_currency() ) {
 			$icons_src['discover'] = [
 				'src' => WC_STRIPE_PLUGIN_URL . '/assets/images/discover.svg',
-				'alt' => __( 'Discover', 'woocommerce-gateway-stripe' ),
+				'alt' => _x( 'Discover', 'Name of credit card', 'woocommerce-gateway-stripe' ),
 			];
 			$icons_src['jcb']      = [
 				'src' => WC_STRIPE_PLUGIN_URL . '/assets/images/jcb.svg',

@@ -142,6 +142,9 @@ a:hover,a:active {outline: 0;}
 .comment-navigation .nav-previous,.posts-navigation .nav-previous,.post-navigation .nav-previous {flex: 1 0 50%;}
 .comment-navigation .nav-next,.posts-navigation .nav-next,.post-navigation .nav-next {text-align: end;flex: 1 0 50%;}
 
+
+.latest_publ{margin: 60px auto auto auto;padding: 0 16px;}
+
 /*--------------------------------------------------------------
   COMPONENTS: Posts & Pages
 --------------------------------------------------------------*/
@@ -376,10 +379,12 @@ a:hover,a:active {outline: 0;}
 .woocommerce .woocommerce-breadcrumb a{color:var(--dark);text-decoration: underline;}
 .woocommerce-message{font-size: 12px;line-height: 16px;padding: 12px 0;}
 
+.woocommerce-checkout .main_wrapper .inner_wrapper{max-width: 660px;margin: auto;}
+
 .woocommerce-billing-fields h3, 
 .woocommerce-additional-fields h3, #order_review_heading{font-size: 22px;margin-bottom: 12px;}
 .form-row label{margin-right: 12px;}
-.form-row input:not(input[type=checkbox]){border: none;border-bottom: 2px solid var(--gold);width: 80%;background-color: rgba(191, 171, 73, .3);}
+.form-row input:not(input[type=checkbox]){border: none;border-bottom: 2px solid var(--gold);width: 80%;}
 .form-row.notes textarea{width: 80%;}
 .form-row.notes .woocommerce-input-wrapper{display: block;}
 
@@ -479,10 +484,10 @@ a:hover,a:active {outline: 0;}
 }
 @media only screen and (min-width: 920px){
 	.related_sidebar.flex .col_square_fig:nth-of-type(3){display: none;}
-  /*.woocommerce .related.products{grid-template-columns: repeat(4, minmax(0, 1fr));}*/
-  .top-grid{display: grid;grid-template-columns: minmax(480px, 75%) 1fr;}
-  .play_list{min-width: auto;width: 100%;flex-direction: column;padding-left: 20px;padding-top: 20px;border-radius: 0;}
-  .list_item{border-bottom: 1px solid var(--lightBrown);width: 85%;}
+  .top-grid{display: grid;grid-template-columns: minmax(360px, 65%) 1fr;}
+  .play_list{min-width: auto;width: 100%;border-radius: 0;}
+  .list_item{border-right: 1px solid var(--lightBrown);}
+  .latest_publ{margin: auto;}
   .woocommerce .columns-4{grid-template-columns: repeat(4, 1fr);}
 
   	#store_posts.inner_wrapper{padding-top: 60px;}
