@@ -28,6 +28,7 @@
     <link rel="preconnect" href="//cdn.jsdelivr.net/">
     <script rel="preload" crossorigin type="text/javascript" as="script" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
+		<!-- TODO: actualizar a GA4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-91771961-12"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
