@@ -57,55 +57,105 @@ if(!class_exists('CoverOptionsNew')):
 			register_setting('coverOptionsPage', 'co_banner_option');
 			add_settings_section('co_banner_options_section','Banners Home',array($this, 'co_banner_section_callback'),'coverOptionsPage');
 
-			add_settings_field('co_banner_input_url','Url del banner',array($this, 'co_input_url_field_render'),'coverOptionsPage','co_banner_options_section');
-			add_settings_field('co_banner_input_link','Link del banner',array($this, 'co_input_link_field_render'),'coverOptionsPage','co_banner_options_section');
+			// TOP BANNER
+			add_settings_field('co_banner_input_url','Url del TOP banner',array($this, 'co_input_url_field_render'),'coverOptionsPage','co_banner_options_section');
+			add_settings_field('co_banner_input_link','Link del TOP banner',array($this, 'co_input_link_field_render'),'coverOptionsPage','co_banner_options_section');
 
-			add_settings_field('co_banner_input_url_2','Url del banner 2', array(
-					$this, 'co_input_url_field_render_2'
-				),
-				'coverOptionsPage',
-				'co_banner_options_section'
-			);
-			add_settings_field('co_banner_input_link_2','Link del banner 2', array(
-					$this, 'co_input_link_field_render_2'
-				),
-				'coverOptionsPage',
-				'co_banner_options_section'
-			);
+			// SECOND BANNER
+			add_settings_field('co_banner_input_url_2','Url del banner 2', array($this, 'co_input_url_field_render_2'),'coverOptionsPage','co_banner_options_section');
+			add_settings_field('co_banner_input_link_2','Link del banner 2', array($this, 'co_input_link_field_render_2'),'coverOptionsPage','co_banner_options_section');
 
-			// Tercer banner
-			add_settings_field('co_banner_input_url_3', 'Url del banner 3', array(
-					$this, 'co_input_url_field_render_3'
-				),
-				'coverOptionsPage',
-				'co_banner_options_section'
-			);
-			add_settings_field('co_banner_input_link_3', 'Link del banner 3', 
-				array(
-					$this, 'co_input_link_field_render_3'
-				), 
-				'coverOptionsPage', 
-				'co_banner_options_section'
-			);
+			// THIRD BANNER
+			add_settings_field('co_banner_input_url_3', 'Url del banner 3', array($this, 'co_input_url_field_render_3'),'coverOptionsPage','co_banner_options_section');
+			add_settings_field('co_banner_input_link_3', 'Link del banner 3', array($this, 'co_input_link_field_render_3'), 'coverOptionsPage', 'co_banner_options_section');
 
+			// FOURTH BANNER
+			add_settings_field('co_banner_input_url_4', 'Url del banner 4', array($this, 'co_input_url_field_render_4'),'coverOptionsPage','co_banner_options_section');
+			add_settings_field('co_banner_input_link_4', 'Link del banner 4', array($this, 'co_input_link_field_render_4'), 'coverOptionsPage', 'co_banner_options_section');
+
+			// FIFTH BANNER
+			add_settings_field('co_banner_input_url_5', 'Url del banner 5', array($this, 'co_input_url_field_render_5'),'coverOptionsPage','co_banner_options_section');
+			add_settings_field('co_banner_input_link_5', 'Link del banner 5', array($this, 'co_input_link_field_render_5'), 'coverOptionsPage', 'co_banner_options_section');
+
+			// SIXTH BANNER
+			add_settings_field('co_banner_input_url_6', 'Url del banner 6', array($this, 'co_input_url_field_render_6'),'coverOptionsPage','co_banner_options_section');
+			add_settings_field('co_banner_input_link_6', 'Link del banner 6', array($this, 'co_input_link_field_render_6'), 'coverOptionsPage', 'co_banner_options_section');
+
+			// BANNER SINGLE PAGE
 			add_settings_section('co_banner_options_section_2','Banner Single',array($this, 'co_banner_section_2_callback'),'coverOptionsPage');
 			add_settings_field('co_banner_single_img', 'Url del banner', array($this, 'co_render_img_input_sin'), 'coverOptionsPage', 'co_banner_options_section_2');
 			add_settings_field('co_banner_single_link', 'Link del banner', array($this, 'co_render_link_input_sin'), 'coverOptionsPage', 'co_banner_options_section_2');
 
+			// BANNER SIDEBAR
 			add_settings_section('co_banner_options_section_3', 'Banner Sidebar', array($this, 'co_banner_section_3_callback'), 'coverOptionsPage');
 			add_settings_field('co_banner_side_img', 'Url del banner', array($this, 'co_render_img_input_sid'), 'coverOptionsPage', 'co_banner_options_section_3');
 			add_settings_field('co_banner_side_link', 'Link del banner', array($this, 'co_render_link_input_sid'), 'coverOptionsPage', 'co_banner_options_section_3');
 
+			// YOUTUBE LIVE
 			add_settings_section('co_live_section', 'Youtube live', array($this, 'co_live_callback'), 'coverOptionsPage');
 			add_settings_field('co_live_url', 'ID de Youtube Live', array($this, 'co_render_yt_live_input'), 'coverOptionsPage', 'co_live_section');
 			add_settings_field('co_live_title', 'Título de la transmisión en vivo', array($this, 'co_render_live_title_input'), 'coverOptionsPage', 'co_live_section');
+		}
+
+		// FIELD GROUP 6
+		public function co_input_url_field_render_6(){
+			$options = get_option('co_banner_option'); ?>
+			<input type="text" 
+				name="co_banner_option[co_banner_input_url_6]"
+				value="<?php echo array_key_exists('co_banner_input_url_6', $options ) ? $options['co_banner_input_url_6'] : ""; ?>" 
+				class="custom_input">
+		<?php
+		}
+		public function co_input_link_field_render_6(){
+			$options = get_option('co_banner_option'); ?>
+			<input type="text"
+				name="co_banner_option[co_banner_input_link_6]"
+				value="<?php echo array_key_exists('co_banner_input_link_6', $options) ? $options['co_banner_input_link_6'] : ""; ?>"
+				class="custom_input">
+		<?php
+		}
+
+		// FIELD GROUP 5
+		public function co_input_url_field_render_5(){
+			$options = get_option('co_banner_option'); ?>
+			<input type="text" 
+				name="co_banner_option[co_banner_input_url_5]"
+				value="<?php echo array_key_exists('co_banner_input_url_5', $options) ? $options['co_banner_input_url_5'] : ""; ?>" 
+				class="custom_input">
+		<?php
+		}
+		public function co_input_link_field_render_5(){
+			$options = get_option('co_banner_option'); ?>
+			<input type="text"
+				name="co_banner_option[co_banner_input_link_5]"
+				value="<?php echo array_key_exists('co_banner_input_link_5', $options) ? $options['co_banner_input_link_5'] : ""; ?>"
+				class="custom_input">
+		<?php
+		}
+
+		// FIELD GROUP 4
+		public function co_input_url_field_render_4(){
+			$options = get_option('co_banner_option'); ?>
+			<input type="text" 
+				name="co_banner_option[co_banner_input_url_4]"
+				value="<?php echo array_key_exists('co_banner_input_url_4', $options) ?  $options['co_banner_input_url_4'] : ""; ?>" 
+				class="custom_input">
+		<?php
+		}
+		public function co_input_link_field_render_4(){
+			$options = get_option('co_banner_option'); ?>
+			<input type="text"
+				name="co_banner_option[co_banner_input_link_4]"
+				value="<?php echo array_key_exists('co_banner_input_link_4', $options) ? $options['co_banner_input_link_4'] : ""; ?>"
+				class="custom_input">
+		<?php
 		}
 
 		// FIELD GROUP 3
 		public function co_input_url_field_render_3(){
 			$options = get_option('co_banner_option'); ?>
 			<input type="text" 
-				name="co_banner_option[co_banner_input_url_3]" 
+				name="co_banner_option[co_banner_input_url_3]"
 				value="<?php echo $options['co_banner_input_url_3']; ?>" 
 				class="custom_input">
 		<?php
@@ -136,6 +186,7 @@ if(!class_exists('CoverOptionsNew')):
 				class="custom_input">
 		<?php
 		}
+
 		// FIELD GROUP 1
 		public function co_input_url_field_render(){
 			$options = get_option('co_banner_option'); ?>
@@ -150,6 +201,8 @@ if(!class_exists('CoverOptionsNew')):
 				class="custom_input">
 		<?php
 		}
+
+		// FIELD GROUP SINGLE
 		public function co_render_img_input_sin(){
 			$options = get_option('co_banner_option');?>
 			<input type="text"
@@ -157,7 +210,6 @@ if(!class_exists('CoverOptionsNew')):
 				value="<?php echo $options['co_banner_single_img']?>" class="custom_input">
 		<?php
 		}
-
 		public function co_render_link_input_sin(){
 			$options = get_option('co_banner_option');?>
 			<input type="text"
@@ -166,6 +218,7 @@ if(!class_exists('CoverOptionsNew')):
 		<?php
 		}
 
+		// FIELD GROUP SIDEBAR
 		public function co_render_img_input_sid(){
 			$options = get_option('co_banner_option'); ?>
 			<input type="text"
@@ -174,7 +227,6 @@ if(!class_exists('CoverOptionsNew')):
 				class="custom_input">
 			<?php
 		}
-
 		public function co_render_link_input_sid(){
 			$options = get_option('co_banner_option'); ?>
 			<input type="text"
@@ -184,6 +236,7 @@ if(!class_exists('CoverOptionsNew')):
 			<?php
 		}
 
+		// FIELD GROUP YOUTUBE LIVE
 		public function co_render_yt_live_input(){
 			$options = get_option('co_banner_option'); ?>
 			<input type="text"
@@ -192,7 +245,6 @@ if(!class_exists('CoverOptionsNew')):
 				class="custom_input">
 			<?php
 		}
-
 		public function co_render_live_title_input(){
 			$options = get_option('co_banner_option'); ?>
 			<input type="text"

@@ -8,6 +8,10 @@
     define( '_S_VERSION', '1.0.4' );
   }
 
+  if(!validate_file('inc/metaboxes.php')){
+		require_once('inc/metaboxes.php');
+	}
+
   define( 'JSPATH', get_template_directory_uri() . '/js/' );
   define( 'CSSPATH', get_template_directory_uri() . '/css/' );
   define( 'THEMEPATH', get_template_directory_uri() . '/' );
@@ -167,6 +171,7 @@
   if ( function_exists('add_image_size') ) {
     add_image_size( 'large_1280', 1280, 720, true );
     add_image_size( 'featured_1024', 1024, 576, true );
+    add_image_size( 'featured_480', 480, 720, true );
     add_image_size( 'middle_480', 480, 270, true );
   }
 
